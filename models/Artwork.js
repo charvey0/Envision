@@ -15,6 +15,35 @@ Artwork.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-
+        date_created: {
+            type: DataTypes.DATE,
+            allowNull: false,
+            defaultValue: DataTypes.NOW,
+        },
+        grade_level: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        img_id: {
+            type: DataTypes.INTEGER,
+            references: 'image',
+            key: 'id'
+        },
+        student_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: "student",
+                key: "id"
+            }
+        },
+    },
+    {
+        sequelize,
+        timestamps: false,
+        freezeTableName: true,
+        underscored: true,
+        modelName: 'artwork',
     }
-)
+);
+
+module.exports = Artwork;
