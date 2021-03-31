@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/charvey0/Envision/issues"
   },
-  "homepage": "https://github.com/charvey0/Envision#readme"
+  "homepage": "https://github.com/charvey0/Envision#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mysql2": "^2.2.5",
+    "sequelize": "^6.6.2"
+  }
 }
