@@ -1,24 +1,28 @@
 const sequelize = require('../config/connection');
+const { User, Student, Artwork, Image } = require('../models');
 
-const seedUser = require('./user-seeds');
-const seedStudent = require('./student-seeds');
-const seedArtwork = require('./artwork-seeds');
-const seedImage = require('./image-seeds');
+const userData = require('./userData.json');
+const studentData = require('./studentData.json');
+const artworkData = require('./artworkData.json');
+const imgaeData = require('./imageData.json');
 
 const seedAll = async () => {
     await sequelize.sync({ force: true });
     console.log('\n-----DATABASE SYNCED-----\n');
 
-    await seedUser();
+    await User.bulkCreate(userData, {
+        individualHooks: true,
+        returning: true,
+    });
     console.log('\n----- DATABASE SYNCED-----\n');
 
-    await seedStudent();
+    await Student.bulkCreate(studentData);
     console.log('\n----- DATABASE SYNCED-----\n');
 
-    await seedArtwork();
+    await Artwork.bulkCreate(artworkData);
     console.log('\n----- DATABASE SYNCED-----\n');
 
-    await seedImage();
+    await Image.bulkCreate(imageData);
     console.log('\n----- DATABASE SYNCED-----\n');
 
     process.exit(0);
