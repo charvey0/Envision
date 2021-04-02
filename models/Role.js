@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Image extends Model { }
+class Role extends Model { }
 
-Image.init(
+Role.init(
     {
         id: {
             type: DataTypes.INTEGER,
@@ -11,7 +11,7 @@ Image.init(
             primaryKey: true,
             autoIncrement: true,
         },
-        url: {
+        role_name: {
             type: DataTypes.STRING,
             allowNull: false,
         }
@@ -21,8 +21,8 @@ Image.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'Image',
+        modelName: 'Role',
     }
 );
 
-module.exports = Image;
+module.exports = Role;

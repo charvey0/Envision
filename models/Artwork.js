@@ -5,11 +5,18 @@ class Artwork extends Model { }
 
 Artwork.init(
     {
-        id: {
+        // id: {
+        //     type: DataTypes.INTEGER,
+        //     allowNull: false,
+        //     primaryKey: true,
+        //     autoIncrement: true,
+        // },
+        user_id: {
             type: DataTypes.INTEGER,
-            allowNull: false,
-            primaryKey: true,
-            autoIncrement: true,
+            references: {
+                model: 'user',
+                key: 'id',
+            },
         },
         title: {
             type: DataTypes.STRING,
@@ -28,13 +35,6 @@ Artwork.init(
             type: DataTypes.INTEGER,
             references: 'image',
             key: 'id'
-        },
-        student_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: "student",
-                key: "id"
-            }
         },
     },
     {

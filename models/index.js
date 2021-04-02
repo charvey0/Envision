@@ -4,16 +4,15 @@ const Artwork = require('./Artwork');
 const User = require('./User');
 const Student = require('./Student');
 const Image = require('./Image');
-const StudentArt = require('./StudentArt')
+// const StudentArt = require('./StudentArt')
 
 User.hasOne(Student, {
     foreignKey: 'user_id',
     onDelete: 'CASCADE',
 });
 
-Artwork.hasOne(Student, {
-    foreignKey: 'student_id',
-    onDelete: 'CASCADE',
+Artwork.belongsTo(Student, {
+    foreignKey: 'student_id'
 });
 
 Student.hasMany(Artwork, {
