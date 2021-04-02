@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS envision_db;
+
+CREATE DATABASE envision_db;
