@@ -2,6 +2,7 @@ const sequelize = require('../config/connection');
 const { User, Student, Artwork, Image } = require('../models');
 
 const userData = require('./userData.json');
+const roleData = require('./roleData.json')
 const studentData = require('./studentData.json');
 const artworkData = require('./artworkData.json');
 const imgaeData = require('./imageData.json');

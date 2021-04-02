@@ -39,9 +39,12 @@ User.init(
                 len: [8],
             },
         },
-        role: {
-            type: DataTypes.STRING,
-            allowNull: false,
+        role_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'user',
+                key: 'id',
+            },
             // validate: {
 
             // }

@@ -5,11 +5,18 @@ class Student extends Model { }
 
 Student.init(
     {
-        id: {
+        // id: {
+        //     type: DataTypes.INTEGER,
+        //     allowNull: false,
+        //     primaryKey: true,
+        //     autoIncrement: true,
+        // },
+        user_id: {
             type: DataTypes.INTEGER,
-            allowNull: false,
-            primaryKey: true,
-            autoIncrement: true,
+            references: {
+                model: 'user',
+                key: 'id',
+            },
         },
         first_name: {
             type: DataTypes.STRING,
@@ -23,13 +30,7 @@ Student.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        user_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'user',
-                key: 'id',
-            },
-        },
+
     },
     {
         sequelize,
