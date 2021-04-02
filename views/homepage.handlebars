@@ -1,9 +1,43 @@
-      <nav>
-        <!-- Conditionally render login or logout links -->
-        {{#if logged_in}}
-        <a href="/profile">profile</a> |
-        <button class="no-button" id="logout">logout</button>
-        {{else}}
-        <a href="/login">login</a>
-        {{/if}}
-      </nav>
+<header>
+  <div class="px-3 py-2 border-bottom mb-3" style="background-color: gray;">
+    <div class="container d-flex flex-wrap justify-content-center">
+      <div class="col-12 col-md-auto mb-2 mb-md-0 me-md-auto">
+        <img src="assets/pictures/favicon.ico" width="35" height="35" class="d-inline-block mr-2 mb-3" alt="Envision">
+        <h1 class="d-inline-block mb-0">Envision</h1>
+      </div>
+      <div class="mt-3 text-end">
+        <button type="button" class="btn btn-light text-dark me-2">Login</button>
+        <button type="button" class="btn btn-color">Sign-up</button>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="container-md">
+  <div class="row">
+    <aside class="col-md-4" style="background-color: antiquewhite;">
+
+      <div class="mb-3">
+        <p>Create new artwork</p>
+      </div>
+      <div>
+        <p>List of past artworks</p>
+      </div>
+
+
+    </aside>
+    <div class="col-md-8 " style="background-color: gold;">
+      <p>artwork</p>
+      <p>metadata</p>
+    </div>
+  </div>
+</div>
+
+{{!-- <nav>
+  <!-- Conditionally render login or logout links -->
+  {{#if logged_in}}
+  <a href="/profile">profile</a> |
+  <button class="no-button" id="logout">logout</button>
+  {{else}}
+  <a href="/login">login</a>
+  {{/if}}
+</nav> --}}
