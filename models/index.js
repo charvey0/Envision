@@ -4,22 +4,26 @@ const Artwork = require('./Artwork');
 const User = require('./User');
 const Student = require('./Student');
 const Image = require('./Image');
+const Role = require('./Role');
 // const StudentArt = require('./StudentArt')
 
-User.hasOne(Student, {
-    foreignKey: 'user_id',
-    onDelete: 'CASCADE',
+Artwork.belongsTo(User, {
+  foreignKey: 'user_id',
 });
 
-Artwork.belongsTo(Student, {
-    foreignKey: 'student_id'
+User.hasMany(Artwork, {
+  foreignKey: 'user_id',
+  onDelete: 'CASCADE',
 });
 
-Student.hasMany(Artwork, {
-    foreignKey: 'student_id',
-    onDelete: 'CASCADE',
+User.belongsTo(Role, {
+  foreignKey: 'role_id',
 });
-// Student.belongsToMany(Artwork, {
+
+Role.hasMany(User, {
+  foreignKey: 'role_id',
+});
+// user.belongsToMany(Artwork, {
 //     through: {
 //         model: StudentArt,
 //         unique: false,
@@ -30,9 +34,9 @@ Student.hasMany(Artwork, {
 // Image.hasOne
 
 module.exports = {
-    Artwork,
-    User,
-    Student,
-    Image,
-    // StudentArt,
-}
+  Artwork,
+  User,
+  Student,
+  Image,
+  // StudentArt,
+};
