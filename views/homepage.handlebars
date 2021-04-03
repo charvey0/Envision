@@ -3,11 +3,22 @@
     <div class="container d-flex flex-wrap justify-content-center">
       <div class="col-12 col-md-auto mb-2 mb-md-0 me-md-auto">
         <img src="assets/pictures/favicon.ico" width="35" height="35" class="d-inline-block mr-2 mb-3" alt="Envision">
-        <h1 class="d-inline-block mb-0">Envision</h1>
+        <a href="/">
+          <h1 class="d-inline-block mb-0" style="color: black;">Envision</h1>
+        </a>
+
       </div>
       <div class="mt-3 text-end">
-        <button type="button" class="btn btn-light text-dark me-2">Login</button>
-        <button type="button" class="btn btn-color">Sign-up</button>
+        {{#if loggedIn}}
+        <button type="button" class="btn btn-light text-dark me-2">LogOut</button>
+        {{else}}
+        <a href="/login">
+          <button type="button" class="btn btn-light text-dark me-2">LogIn</button>
+        </a>
+        <a href="signup">
+          <button type="button" class="btn btn-color">Sign-up</button>
+        </a>
+        {{/if}}
       </div>
     </div>
   </div>

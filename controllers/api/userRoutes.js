@@ -51,29 +51,27 @@ const { User } = require('../../models');
 //     });
 // });
 
-router.post('/', (req, res) => {
+router.post('/', async (req, res) => {
   console.log(req.body);
-  User.create({
-    email: req.body.email,
-    password: req.body.password,
-    first_name: req.body.firstName,
-    last_name: req.body.lastName,
-    role_id: +req.body.role,
-  })
-
-    .then((dbUserData) => {
-      req.session.save(() => {
-        req.session.user_id = dbUserData.id;
-        req.session.email = dbUserData.email;
-        req.session.loggedIn = true;
-
-        res.json(dbUserData);
-      });
+  try {
+    const newUser = await User.create({
+      email: req.body.email,
+      password: req.body.password,
+      first_name: req.body.firstName,
+      last_name: req.body.lastName,
+      role_id: +req.body.role,
     })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json(err);
-    });
+    // console.log(newUser);
+    // req.session.save(() => {
+    //   req.session.user_id = newUser.id;
+    //   req.session.email = newUser.email;
+    //   req.session.loggedIn = true;
+    // });
+    res.status(200).json(newUser);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  };
 });
 
 // router.post('/login', (req, res) => {
