@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Role extends Model {}
+class Role extends Model { }
 
 Role.init(
   {
@@ -21,7 +21,7 @@ Role.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'Role',
+    modelName: 'role',
   }
 );
 

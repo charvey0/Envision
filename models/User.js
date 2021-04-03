@@ -42,7 +42,7 @@ User.init(
     role_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'Role',
+        model: 'role',
         key: 'id',
       },
       // validate: {

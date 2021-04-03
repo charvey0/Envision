@@ -36,7 +36,7 @@ Role.hasMany(User, {
 module.exports = {
   Artwork,
   User,
-  Student,
-  Image,
+  Role,
+  // Image,
   // StudentArt,
 };
