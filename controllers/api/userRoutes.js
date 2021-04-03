@@ -27,24 +27,26 @@ router.post('/', async (req, res) => {
 
 router.post('/login', async (req, res) => {
   console.log("POST started");
+  console.log(req.body);
   try {
     const userDB = await User.findOne({
       where: {
         email: req.body.email
       }
     })
-    console.log(`user_email: ${userDB}`);
+    console.log(`user_email: ${!userDB}`);
     if (!userDB) {
       res.status(400).json({ message: "1. Email or password is incorrect" })
       return;
     };
 
-    // const validPassword = await userDB.checkPassword(req.body.password);
+    const validPassword = await userDB.checkPassword(req.body.password);
     // console.log(`password: ${validPassword}`);
-    // if (!validPassword) {
-    //   res.status(400).json({ message: "2. Email or password is incorrect" })
-    //   return;
-    // };
+    console.log(!validPassword);
+    if (!validPassword) {
+      res.status(400).json({ message: "2. Email or password is incorrect" })
+      return;
+    };
 
     req.session.save(() => {
       req.session.user_id = userDB.id;

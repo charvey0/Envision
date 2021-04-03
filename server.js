@@ -6,7 +6,7 @@ const exphbs = require('express-handlebars');
 const helpers = require('./utils/helpers');
 
 const sequelize = require('./config/connection');
-// const SequelizeStore = require("connect-session-sequelize")(session.Store);
+const SequelizeStore = require("connect-session-sequelize")(session.Store);
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -14,24 +14,14 @@ const PORT = process.env.PORT || 3001;
 const hbs = exphbs.create({ helpers });
 // const hbs = exphbs.create({});
 
-// const sess = {
-//   secret: process.env.SESSION_SECRET,
-//   cookie: {},
-//   resave: false,
-//   saveUninitialized: true,
-//   store: new SequelizeStore({
-//     db: sequelize,
-//   }),
-// };
-
 const sess = {
-  secret: 'Super secret secret',
-  // cookie: {},
+  secret: process.env.SESSION_SECRET,
+  cookie: {},
   resave: false,
-  saveUninitialized: false,
-  // store: new SequelizeStore({
-  //   db: sequelize,
-  // }),
+  saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize,
+  }),
 };
 
 // Add express-session and store as Express.js middleware
