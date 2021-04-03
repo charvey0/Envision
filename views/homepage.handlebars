@@ -1,36 +1,59 @@
-<header>
-  <div class="px-3 py-2 border-bottom mb-3" style="background-color: gray;">
-    <div class="container d-flex flex-wrap justify-content-center">
-      <div class="col-12 col-md-auto mb-2 mb-md-0 me-md-auto">
-        <img src="assets/pictures/favicon.ico" width="35" height="35" class="d-inline-block mr-2 mb-3" alt="Envision">
-        <h1 class="d-inline-block mb-0">Envision</h1>
-      </div>
-      <div class="mt-3 text-end">
-        <button type="button" class="btn btn-light text-dark me-2">Login</button>
+<nav class="navbar" style="background-color: gray;">
+  <div class="ml-4 navbar-brand">
+    <img src="/assets/pictures/favicon.ico" width="35" height="35" class="d-inline-block mr-2 mb-3" alt="Envision">
+    <a href="/">
+      <h1 class="d-inline-block mb-0" style="color: black;">Envision</h1>
+    </a>
+  </div>
+
+  <div class="navbar-brand">
+    <div class="navbar-brand">
+      {{#if loggedIn}}
+      <button id="logout" type="button" class="btn btn-light text-dark me-2">LogOut</button>
+      {{else}}
+      <a href="/login">
+        <button type="button" class="btn btn-light text-dark me-2">LogIn</button>
+      </a>
+      <a href="signup">
         <button type="button" class="btn btn-color">Sign-up</button>
-      </div>
+      </a>
+      {{/if}}
     </div>
   </div>
-</header>
-<div class="container-md">
-  <div class="row">
-    <aside class="col-md-4" style="background-color: antiquewhite;">
-
-      <div class="mb-3">
-        <p>Create new artwork</p>
-      </div>
-      <div>
-        <p>List of past artworks</p>
-      </div>
-
-
-    </aside>
-    <div class="col-md-8 " style="background-color: gold;">
-      <p>artwork</p>
-      <p>metadata</p>
-    </div>
-  </div>
+</nav>
+{{#if loggedIn}}
+<div class="sidebar">
+  <header>
+    Name
+  </header>
+  <ul>
+    <li>
+      <button type="button" class="btn add-btn"><i class="fas fa-plus-circle mr-2"></i>Add artwork</button>
+    </li>
+    <li><a href="#">Artworks</a></li>
+  </ul>
 </div>
+<section class="container">
+
+</section>
+{{else}}
+<div class="container">
+  <h3>
+    About platform
+  </h3>
+  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+    standard
+    dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type
+    specimen
+    book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially
+    unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and
+    more
+    recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+</div>
+{{/if}}
+{{#if loggedIn}}
+<script src="logout.js"></script>
+{{/if}}
 
 {{!-- <nav>
   <!-- Conditionally render login or logout links -->

@@ -1,5 +1,7 @@
 [
     {
-        "title": ""
+        "user_id": 1,
+        "title": "whatever",
+        "grade_level": "junior"
     }
 ]
