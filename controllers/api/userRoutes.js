@@ -11,7 +11,7 @@ router.post('/', async (req, res) => {
       first_name: req.body.firstName,
       last_name: req.body.lastName,
       role_id: +req.body.role,
-    })
+    });
     console.log(newUser);
     req.session.save(() => {
       req.session.user_id = newUser.id;
@@ -22,38 +22,43 @@ router.post('/', async (req, res) => {
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
-  };
+  }
 });
 
 router.post('/login', async (req, res) => {
-  console.log("POST started");
+  console.log('POST started');
   console.log(req.body);
   try {
     const userDB = await User.findOne({
       where: {
-        email: req.body.email
-      }
-    })
-    console.log(`user_email: ${!userDB}`);
+        email: req.body.email,
+      },
+    });
+    console.log(`user_email: ${userDB}`);
     if (!userDB) {
-      res.status(400).json({ message: "1. Email or password is incorrect" })
+      res.status(400).json({ message: 'Email or password is incorrect' });
       return;
-    };
+    }
 
     const validPassword = await userDB.checkPassword(req.body.password);
     // console.log(`password: ${validPassword}`);
-    console.log(!validPassword);
+    console.log('validPassword: ', validPassword);
     if (!validPassword) {
-      res.status(400).json({ message: "2. Email or password is incorrect" })
+      res.status(400).json({ message: 'Email or password is incorrect' });
       return;
-    };
+    }
 
     req.session.save(() => {
       req.session.user_id = userDB.id;
       req.session.email = userDB.email;
+      req.session.first_name = userDB.first_name;
+      req.session.last_name = userDB.last_name;
+      req.session.role_id = userDB.role_id;
       req.session.loggedIn = true;
-
-      res.status(200).json({ user: userDB, message: 'You are now logged in!' });
+      console.log('userDB', userDB);
+      res
+        .status(200)
+        .json({ user: userDB.dataValues, message: 'You are now logged in!' });
     });
   } catch (err) {
     console.log(err);
@@ -71,7 +76,6 @@ router.post('/logout', (req, res) => {
     res.status(404).end();
   }
 });
-
 
 //Post, Comment
 // router.get('/', (req, res) => {
@@ -123,9 +127,6 @@ router.post('/logout', (req, res) => {
 //       res.status(500).json(err);
 //     });
 // });
-
-
-
 
 // router.put('/:id', (req, res) => {
 //   User.update(req.body, {
