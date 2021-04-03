@@ -1,0 +1,56 @@
+<nav class="navbar mb-5" style="background-color: gray;">
+    <div class="ml-4 navbar-brand">
+        <img src="/assets/pictures/favicon.ico" width="35" height="35" class="d-inline-block mr-2 mb-3" alt="Envision">
+        <a href="/">
+            <h1 class="d-inline-block mb-0" style="color: black;">Envision</h1>
+        </a>
+    </div>
+
+    <div class="navbar-brand">
+        <div class="navbar-brand">
+            {{#if loggedIn}}
+            <button id="logout" type="button" class="btn btn-light text-dark me-2">LogOut</button>
+            {{else}}
+            <a href="/login">
+                <button type="button" class="btn btn-light text-dark me-2">LogIn</button>
+            </a>
+            <a href="signup">
+                <button type="button" class="btn btn-color">Sign-up</button>
+            </a>
+            {{/if}}
+        </div>
+    </div>
+</nav>
+
+<div class="container mt-5">
+    <form id="add-artwork">
+        <div class="row">
+            <div class="col-sm-6">
+                <label for="first-name" class="form-label">Title</label>
+                <input id="first-name" type="text" class="form-control" placeholder="Michael">
+            </div>
+            <div class="col-sm-6">
+                <label for="last-name" class="form-label">Grade Level</label>
+                <input id="last-name" type="text" class="form-control" placeholder="Jackson">
+            </div>
+            <div class="col-12 mt-3">
+                <label class="form-label" for="customFile">Upload the file</label>
+                <input type="file" class="form-control" id="uploadFile" />
+            </div>
+            <div class="col-12">
+                <label for="email-signup" class="form-label">Email address</label>
+                <input id="email-signup" type="email" class="form-control" placeholder="you@example.com">
+            </div>
+            <div class="col-12">
+                <label class="form-label">Role/Status</label>
+                <select id="role-select" class="form-select">
+                    <option selected>Choose...</option>
+                    <option value="1">Teacher</option>
+                    <option value="2">Student</option>
+                    <option value="3">Viewer</option>
+                </select>
+            </div>
+        </div>
+        <button class="mt-4 w-100 btn btn-color btn-lg" type="submit">Create My Account</button>
+    </form>
+</div>
