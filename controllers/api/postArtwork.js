@@ -1,5 +1,6 @@
 
 const router = require('express').Router();
+const fileUpload = require('express-fileupload');
 const { User } = require('../../models');
 
 router.get('/', (req, res) => {
@@ -7,6 +8,20 @@ router.get('/', (req, res) => {
         loggedIn: req.session.loggedIn
     })
 })
+
+// router.post('/upload', (req, res) => {
+//     res.send('test')
+//     upload(req, res, (err) => {
+//         if (err) {
+//             res.render('artwork', {
+//                 msg: err
+//             })
+//         } else {
+//             console.log(req.file);
+//             res.send('test')
+//         }
+//     })
+// })
 
 // router.post('/', function (req, res) {
 //     let sampleFile;
