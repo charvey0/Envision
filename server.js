@@ -5,6 +5,8 @@ const routes = require('./controllers');
 const exphbs = require('express-handlebars');
 const helpers = require('./utils/helpers');
 
+const upload = require('express-fileupload');
+
 const sequelize = require('./config/connection');
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
 
@@ -34,6 +36,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(upload())
 app.use(routes);
 
 // turn on connection to db and server
