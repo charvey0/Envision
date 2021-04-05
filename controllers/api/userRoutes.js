@@ -1,9 +1,9 @@
 const router = require('express').Router();
 const { User } = require('../../models');
-// const withAuth = require('../../utils/auth');
+const withAuth = require('../../utils/auth');
 
 router.post('/', async (req, res) => {
-  console.log(req.body);
+  // console.log(req.body);
   try {
     const newUser = await User.create({
       email: req.body.email,
@@ -12,7 +12,7 @@ router.post('/', async (req, res) => {
       last_name: req.body.lastName,
       role_id: +req.body.role,
     });
-    console.log(newUser);
+    // console.log(newUser);
     req.session.save(() => {
       req.session.user_id = newUser.id;
       req.session.email = newUser.email;
@@ -42,8 +42,8 @@ router.post('/login', async (req, res) => {
     }
 
     const validPassword = await userDB.checkPassword(req.body.password);
-    // console.log(`password: ${validPassword}`);
-    // console.log('validPassword: ', validPassword);
+    console.log(`password: ${validPassword}`);
+    console.log('validPassword: ', validPassword);
     if (!validPassword) {
       res.status(400).json({ message: 'Email or password is incorrect' });
       return;

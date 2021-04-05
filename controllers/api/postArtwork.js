@@ -1,5 +1,6 @@
 const router = require('express').Router();
 // const fileUpload = require('express-fileupload');
+const withAuth = require('../../utils/auth')
 const { User, Artwork } = require('../../models');
 
 router.get('/', (req, res) => {
@@ -8,7 +9,7 @@ router.get('/', (req, res) => {
     })
 })
 
-router.post('/submit', async (req, res) => {
+router.post('/submit', withAuth, async (req, res) => {
     // console.log(req);
     try {
         const newArtwork = await Artwork.create({
