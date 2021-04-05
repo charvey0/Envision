@@ -1,0 +1,136 @@
+<nav class="navbar mb-5" style="background-color: gray;">
+    <div class="ml-4 navbar-brand">
+        <img src="/assets/pictures/favicon.ico" width="35" height="35" class="d-inline-block mr-2 mb-3" alt="Envision">
+        <a href="/">
+            <h1 class="d-inline-block mb-0" style="color: black;">Envision</h1>
+        </a>
+    </div>
+
+    <div class="navbar-brand">
+        <div class="navbar-brand">
+            {{#if loggedIn}}
+            <button id="logout" type="button" class="btn btn-light text-dark me-2">LogOut</button>
+            {{else}}
+            <a href="/login">
+                <button type="button" class="btn btn-light text-dark me-2">LogIn</button>
+            </a>
+            <a href="signup">
+                <button type="button" class="btn btn-color">Sign-up</button>
+            </a>
+            {{/if}}
+        </div>
+    </div>
+</nav>
+
+
+<div class="container mt-5">
+
+    <form action="/api/post/upload" method="POST" enctype="multipart/form-data" id="add-artwork">
+        <div class="row">
+            <div class="col-lg-4">
+                <label for="basic-url">Artwork-Title</label>
+                <div class=" input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Title</span>
+                    </div>
+                    <input id="artwork-title" type="text" class="form-control" placeholder="Independence Day...">
+                </div>
+            </div>
+            <div class="col-lg-2 mb-3">
+                <label class="form-label mr-2">Grade level</label>
+                <select id="grade-value" class="form-select">
+                    <option selected>Choose...</option>
+                    <option value="9">9-th</option>
+                    <option value="10">10-th</option>
+                    <option value="11">11-th</option>
+                    <option value="12">12-th</option>
+                </select>
+            </div>
+            <div class="col-lg-6">
+
+            </div>
+            <div class="col-lg-6">
+                <label for="basic-url">Add links related to artwork</label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Links</span>
+                    </div>
+                    <input id="artwork-links" type="text" class="form-control"
+                        placeholder="https://drive.google.com/file/...">
+                </div>
+            </div>
+            <div class="col-lg-6">
+
+            </div>
+
+
+            <div class="col-lg-6 input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Description</span>
+                </div>
+                <textarea maxlength="150" id="description-artwork" class="form-control"
+                    placeholder="Limit: 150 characters"></textarea>
+            </div>
+            <div class="col-lg-6">
+
+            </div>
+            <div class="col-lg-6 mb-3">
+                {{!-- {{typeof msg != 'undefined' ? msg: ''}} --}}
+                {{#if msg}}
+                <label>{{msg}}</label>
+                {{else}}
+                <label class="form-label" for="customFile">Upload the file</label>
+                {{/if}}
+                <input type="hidden" id="user_id" value="75" />
+                <input name="myArtwork" type="file" class="form-control" id="uploadFile" />
+            </div>
+            <div class="col-lg-6">
+
+            </div>
+            <div class="col-md-4 mb-3">
+                <button type="submit" id="submit_artwork" class="w-100 btn btn-color">Submit
+                    Artwork</button>
+            </div>
+            <div class="col-md-2">
+                <a href="/">
+                    <span class="w-100 btn btn-danger">Go, back</span>
+                </a>
+            </div>
+            {{!-- <div class="col-sm-6">
+                <label for="artwork-title" class="form-label">Title</label>
+                <input id="artwork-title" type="text" class="form-control" placeholder="Weather-Dashboard">
+            </div> --}}
+            {{!-- <div class="col-sm-6">
+                {{!-- {{typeof msg != 'undefined' ? msg: ''}} --}}
+                {{!-- {{#if msg}} --}}
+                {{!-- <label>{{msg}}</label> --}}
+                {{!-- {{else}} --}}
+                {{!-- <label class="form-label" for="customFile">Upload the file</label> --}}
+                {{!-- {{/if}} --}}
+                {{!-- <input type="hidden" id="user_id" value="75" /> --}}
+                {{!-- <input name="myArtwork" type="file" class="form-control" id="uploadFile" /> --}}
+                {{!-- </div> --}}
+            {{!-- {{#if msg}}
+            <div class="col-sm-6 mt-3">
+                <p>{{msg}}</p>
+            </div>
+            {{/if}} --}}
+            {{!-- <div class="col-sm-6 mt-3">
+                <label class="form-label mr-2">Grade level</label>
+                <select id="grade-value" class="form-select">
+                    <option selected>Choose...</option>
+                    <option value="9">9-th</option>
+                    <option value="10">10-th</option>
+                    <option value="11">11-th</option>
+                    <option value="12">12-th</option>
+                </select>
+            </div> --}}
+            {{!-- <div class="col-sm-6 mt-3">
+                <button type="submit" id="submitt" class="w-100 btn btn-color">Upload
+                    Artwork</button>
+            </div> --}}
+        </div>
+    </form>
+</div>
+
+<script src="../../eventListeners.js"></script>

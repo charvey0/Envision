@@ -1,0 +1,11 @@
+[
+    {
+        "role_name": "Teacher"
+    },
+    {
+        "role_name": "Student"
+    },
+    {
+        "role_name": "Viewer"
+    }
+]

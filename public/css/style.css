@@ -1,0 +1,52 @@
+body {
+      background-color: #e7e7e7;
+}
+
+.btn-color {
+    background-color: #209CEE;
+}
+
+.sidebar {
+  position: fixed;
+  left: 0px;
+  width: 250px;
+  height: 100%;
+  background: #042331;
+}
+
+.sidebar header {
+  font-size: 22px;
+  color: white;
+  line-height: 70px;
+  text-align: center;
+  background: #063146;
+}
+
+.sidebar ul a, .add-btn{
+  display: block;
+  height: 100%;
+  width: 100%;
+  line-height: 65px;
+  font-size: 20px;
+  color: white;
+  padding-left: 40px;
+  border-bottom: 1px solid black;
+}
+ul li:hover a {
+  padding-left: 50px;
+}
+
+.add-btn {
+    padding: 0px 0px 0px 5px !important; 
+}
+
+.add-btn:hover {
+    color: white;
+}
+
+/* .add-btn:hover {
+    color: white;
+} */
+/* .btn-dark-blue {
+    color: white;
+} */

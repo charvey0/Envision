@@ -1,0 +1,71 @@
+<nav class="navbar" style="background-color: gray;">
+  <div class="ml-4 navbar-brand">
+    <img src="/assets/pictures/favicon.ico" width="35" height="35" class="d-inline-block mr-2 mb-3" alt="Envision">
+    <a href="/">
+      <h1 class="d-inline-block mb-0" style="color: black;">Envision</h1>
+    </a>
+  </div>
+
+  <div class="navbar-brand">
+    <div class="navbar-brand">
+      {{#if loggedIn}}
+      <button id="logout" type="button" class="btn btn-light text-dark me-2">LogOut</button>
+      {{else}}
+      <a href="/login">
+        <button type="button" class="btn btn-light text-dark me-2">LogIn</button>
+      </a>
+      <a href="signup">
+        <button type="button" class="btn btn-color">Sign-up</button>
+      </a>
+      {{/if}}
+    </div>
+  </div>
+</nav>
+{{#if loggedIn}}
+<div class="sidebar">
+  <header>
+    <h1><a href="profilepage">{{first_name}} {{last_name}}</h1></a>
+  </header>
+  <ul>
+    <li>
+      <a href="/api/post">
+        <button type="button" class="btn add-btn" id="add-artwork"><i class="fas fa-plus-circle mr-2"></i>Add
+          artwork</button>
+      </a>
+    </li>
+    <li><a href="#">Artworks</a></li>
+  </ul>
+</div>
+<section class="container">
+
+</section>
+{{else}}
+<div class="container">
+  <h3>
+    About platform
+  </h3>
+  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+    standard
+    dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type
+    specimen
+    book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially
+    unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and
+    more
+    recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+</div>
+{{/if}}
+{{#if loggedIn}}
+<script src="logout.js"></script>
+{{!--
+<script src="eventlisteners.js"></script> --}}
+{{/if}}
+
+{{!-- <nav>
+  <!-- Conditionally render login or logout links -->
+  {{#if logged_in}}
+  <a href="/profile">profile</a> |
+  <button class="no-button" id="logout">logout</button>
+  {{else}}
+  <a href="/login">login</a>
+  {{/if}}
+</nav> --}}

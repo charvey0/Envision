@@ -1,0 +1,10 @@
+[
+    {
+        "user_id": 1,
+        "title": "whatever",
+        "description": "whatever2",
+        "grade_level": "9",
+        "links": "sample.com",
+        "file_path": "hz"
+    }
+]
