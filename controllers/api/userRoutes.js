@@ -25,16 +25,17 @@ router.post('/', async (req, res) => {
   }
 });
 
+// Log in page
 router.post('/login', async (req, res) => {
-  console.log('POST started');
-  console.log(req.body);
+  // console.log('POST started');
+  // console.log(req.body);
   try {
     const userDB = await User.findOne({
       where: {
         email: req.body.email,
       },
     });
-    console.log(`user_email: ${userDB}`);
+    // console.log(`user_email: ${userDB}`);
     if (!userDB) {
       res.status(400).json({ message: 'Email or password is incorrect' });
       return;
@@ -42,7 +43,7 @@ router.post('/login', async (req, res) => {
 
     const validPassword = await userDB.checkPassword(req.body.password);
     // console.log(`password: ${validPassword}`);
-    console.log('validPassword: ', validPassword);
+    // console.log('validPassword: ', validPassword);
     if (!validPassword) {
       res.status(400).json({ message: 'Email or password is incorrect' });
       return;
@@ -55,7 +56,7 @@ router.post('/login', async (req, res) => {
       req.session.last_name = userDB.last_name;
       req.session.role_id = userDB.role_id;
       req.session.loggedIn = true;
-      console.log('userDB', userDB);
+      // console.log('userDB', userDB);
       res
         .status(200)
         .json({ user: userDB.dataValues, message: 'You are now logged in!' });

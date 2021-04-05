@@ -2,7 +2,9 @@
     {
         "user_id": 1,
         "title": "whatever",
-        "grade_level": "junior",
-        "filePath": "hz"
+        "description": "whatever2",
+        "grade_level": "9",
+        "links": "sample.com",
+        "file_path": "hz"
     }
 ]

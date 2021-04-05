@@ -11,29 +11,37 @@ Artwork.init(
       primaryKey: true,
       autoIncrement: true
     },
-    // user_id: {
-    //   type: DataTypes.INTEGER,
-    //   references: {
-    //     model: 'user',
-    //     key: 'id',
-    //   },
-    // },
+    user_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'user',
+        key: 'id',
+      },
+    },
     title: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    description: {
       type: DataTypes.STRING,
       allowNull: true,
     },
     date_created: {
       type: DataTypes.DATE,
-      allowNull: true,
+      allowNull: false,
       defaultValue: DataTypes.NOW,
     },
     grade_level: {
       type: DataTypes.STRING,
-      allowNull: true,
+      allowNull: false,
+    },
+    links: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     file_path: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     }
   },
   {
