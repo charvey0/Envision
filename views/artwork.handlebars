@@ -33,12 +33,12 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="inputGroup-sizing-default">Title</span>
                     </div>
-                    <input id="title-artwork" type="text" class="form-control" placeholder="Independence Day...">
+                    <input id="artwork-title" type="text" class="form-control" placeholder="Independence Day...">
                 </div>
             </div>
             <div class="col-lg-2 mb-3">
                 <label class="form-label mr-2">Grade level</label>
-                <select id="grade-select" class="form-select">
+                <select id="grade-value" class="form-select">
                     <option selected>Choose...</option>
                     <option value="9">9-th</option>
                     <option value="10">10-th</option>
@@ -68,7 +68,8 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text">Description</span>
                 </div>
-                <textarea class="form-control" aria-label="Description"></textarea>
+                <textarea maxlength="150" id="description-artwork" class="form-control"
+                    placeholder="Limit: 150 characters"></textarea>
             </div>
             <div class="col-lg-6">
 
@@ -87,15 +88,17 @@
 
             </div>
             <div class="col-md-4 mb-3">
-                <button type="submit" id="submitt" class="w-100 btn btn-color">Submit
+                <button type="submit" id="submit_artwork" class="w-100 btn btn-color">Submit
                     Artwork</button>
             </div>
             <div class="col-md-2">
-                <button type="submit" class="w-100 btn btn-danger">Go, back</button>
+                <a href="/">
+                    <span class="w-100 btn btn-danger">Go, back</span>
+                </a>
             </div>
             {{!-- <div class="col-sm-6">
-                <label for="title-artwork" class="form-label">Title</label>
-                <input id="title-artwork" type="text" class="form-control" placeholder="Weather-Dashboard">
+                <label for="artwork-title" class="form-label">Title</label>
+                <input id="artwork-title" type="text" class="form-control" placeholder="Weather-Dashboard">
             </div> --}}
             {{!-- <div class="col-sm-6">
                 {{!-- {{typeof msg != 'undefined' ? msg: ''}} --}}
@@ -114,7 +117,7 @@
             {{/if}} --}}
             {{!-- <div class="col-sm-6 mt-3">
                 <label class="form-label mr-2">Grade level</label>
-                <select id="grade-select" class="form-select">
+                <select id="grade-value" class="form-select">
                     <option selected>Choose...</option>
                     <option value="9">9-th</option>
                     <option value="10">10-th</option>
@@ -130,4 +133,4 @@
     </form>
 </div>
 
-<script src="../eventListeners.js"></script>
+<script src="../../eventListeners.js"></script>
