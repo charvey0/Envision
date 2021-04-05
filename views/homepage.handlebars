@@ -28,7 +28,10 @@
   </header>
   <ul>
     <li>
-      <button type="button" class="btn add-btn"><i class="fas fa-plus-circle mr-2"></i>Add artwork</button>
+      <a href="/api/post">
+        <button type="button" class="btn add-btn" id="add-artwork"><i class="fas fa-plus-circle mr-2"></i>Add
+          artwork</button>
+      </a>
     </li>
     <li><a href="#">Artworks</a></li>
   </ul>
@@ -53,6 +56,8 @@
 {{/if}}
 {{#if loggedIn}}
 <script src="logout.js"></script>
+{{!--
+<script src="eventlisteners.js"></script> --}}
 {{/if}}
 
 {{!-- <nav>
