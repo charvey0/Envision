@@ -5,21 +5,20 @@ const routes = require('./controllers');
 const exphbs = require('express-handlebars');
 const helpers = require('./utils/helpers');
 
-// const ejs = require('ejs');
-const multer = require('multer');
+// const multer = require('multer');
 
-// Set Storage Engine
-const storage = multer.diskStorage({
-  destination: './public/uploads',
-  filename: function (req, file, cb) {
-    cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
-  }
-})
+// // Set Storage Engine
+// const storage = multer.diskStorage({
+//   destination: './public/uploads',
+//   filename: function (req, file, cb) {
+//     cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+//   }
+// })
 
-// Init Upload
-const upload = multer({
-  storage: storage
-}).single('myArtwork');
+// // Init Upload
+// const upload = multer({
+//   storage: storage
+// }).single('myArtwork');
 
 // const upload = require('express-fileupload');
 
@@ -55,19 +54,19 @@ app.use(express.static(path.join(__dirname, 'public')));
 // app.use(upload())
 app.use(routes);
 
-app.post('/api/post/upload', (req, res) => {
-  // res.send('test')
-  upload(req, res, (err) => {
-    if (err) {
-      res.render('artwork', {
-        msg: err
-      })
-    } else {
-      console.log(req.file);
-      res.send('test')
-    }
-  })
-})
+// app.post('/api/post/upload', (req, res) => {
+//   // res.send('test')
+//   upload(req, res, (err) => {
+//     if (err) {
+//       res.render('artwork', {
+//         msg: err
+//       })
+//     } else {
+//       console.log(req.file);
+//       res.send('test')
+//     }
+//   })
+// })
 
 // turn on connection to db and server
 sequelize.sync({ force: false }).then(() => {

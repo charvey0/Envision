@@ -1,11 +1,36 @@
+// console.log("hey hey");
 
-
-function addArtwork(event) {
+async function addArtwork(event) {
     event.preventDefault();
+
     const title_artwork = document.querySelector('#title-artwork').value.trim();
     const grade_value = document.querySelector('#grade-select').value.trim();
-    console.log(title_artwork);
+
+    var form = document.getElementById("add-artwork");
+    var formData = new FormData(form);
+    const response = await fetch('/api/post/upload', {
+        method: 'POST',
+        body: formData
+    });
+    if (response.ok) {
+        console.log('success');
+
+        // document.location.replace('/');
+    } else {
+        alert(response.statusText);
+    }
+
+    console.log(title_artwork, grade_value);
 }
+
+
+
+// function addArtwork(event) {
+//     event.preventDefault();
+//     const title_artwork = document.querySelector('#title-artwork').value.trim();
+//     const grade_value = document.querySelector('#grade-select').value.trim();
+//     console.log(title_artwork);
+// }
 // async function addArtwork(event) {
 //     event.preventDefault();
 //     console.log("hey");
@@ -20,7 +45,7 @@ function addArtwork(event) {
 //         alert(upload.statusText);
 //     }
 // }
-console.log("hey hey");
+
 document
     .querySelector("#add-artwork")
     .addEventListener("submit", addArtwork);
