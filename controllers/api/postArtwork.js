@@ -79,7 +79,7 @@ router.get('/', (req, res) => {
 
 router.post('/upload', async (req, res) => {
     // res.send('test')
-    // console.log(req);
+    console.log(req.body);
     await upload(req, res, (err) => {
         if (err) {
             res.render('artwork', {
@@ -98,6 +98,7 @@ router.post('/upload', async (req, res) => {
                     // file: `../uploads/${req.filename}`
                 });
                 console.log(req.file);
+                console.log(req.body);
             }
         }
 

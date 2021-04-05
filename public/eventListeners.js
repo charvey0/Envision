@@ -10,7 +10,14 @@ async function addArtwork(event) {
     var formData = new FormData(form);
     const response = await fetch('/api/post/upload', {
         method: 'POST',
-        body: formData
+        body:
+            // {
+            formData,
+        // title_artwork,
+        // grade_value
+        // },
+
+        // headers: { 'Content-Type': 'application/json' },
     });
     if (response.ok) {
         console.log('success');
@@ -23,7 +30,10 @@ async function addArtwork(event) {
     console.log(title_artwork, grade_value);
 }
 
-
+// JSON.stringify({
+//     title_artwork,
+//     grade_value
+// })
 
 // function addArtwork(event) {
 //     event.preventDefault();
