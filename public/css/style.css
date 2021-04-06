@@ -61,3 +61,16 @@ h3 {
   padding-top: 2rem;
   font-size: 15px;
 }
+
+.card {
+  padding-left: 2rem;
+  padding-bottom: 1rem;
+}
+
+.card-title {
+  font-size: 12px;
+}
+
+.card-text {
+  font-size: 10px;
+}
