@@ -59,7 +59,7 @@
                 <a href="{{artwork.links}}" target="_blank" class="btn btn-primary">View Artwork</a>
             </div>
             <div class="card-footer">
-                <small class="text-muted">Submited: {{artwork.date_created}}</small>
+                <small class="text-muted">Submited: {{ format_date artwork.date_created}}</small>
             </div>
         </div>
         {{/each}}
