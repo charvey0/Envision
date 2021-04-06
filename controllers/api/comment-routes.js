@@ -9,7 +9,6 @@ router.get('/', (req, res) => {
       res.status(500).json(err);
     });
 });
-
 router.get('/:id', (req, res) => {
   Comment.findAll({
     where: {
