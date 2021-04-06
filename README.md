@@ -2,6 +2,10 @@
 
 [![license](https://img.shields.io/badge/License-MIT-blue)](https://img.shields.io/badge/License-MIT-blue)
 
+## Link to Heroku deployment:
+
+[Envision on Heroku](https://afternoon-bastion-28646.herokuapp.com/)
+
 ## Link to GitHub repo:
 
 [Envision](https://github.com/charvey0/Envision)
@@ -61,9 +65,9 @@ Thank you for your interest in contributing. You can fork this project and adapt
 
 # Questions
 
-If you have any questions, please contact the project owners by clicking on the email listed below.
+If you have any questions, please contact the project owners by clicking on the GitHub links listed below.
 
-#### [charvey0](https://github.com/charvey0), [charvey0@gmail.com](mailto:charvey0@gmail.com)
+#### [charvey0](https://github.com/charvey0)
 
 #### [justpeachy8688](https://github.com/justpeachy8688)
 
