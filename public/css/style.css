@@ -17,24 +17,28 @@ body {
   padding: 0;
 }
 .sidebar header {
-  font-size: 22px;
+  font-size: 20px;
   color: white;
   line-height: 70px;
-  text-align: center;
+  text-align: justify;
+  padding-left: 76px;
   background: #063146;
 }
+
 
 .sidebar ul a,
 .add-btn {
   display: block;
   height: 100%;
   width: 100%;
-  line-height: 65px;
+  line-height: 70px;
   font-size: 20px;
   color: white;
-  padding-left: 40px;
+  padding-left: 35px;
   border-bottom: 1px solid black;
+  text-align: justify;
 }
+
 ul li:hover a {
   padding-left: 50px;
 }
@@ -44,6 +48,7 @@ ul li:hover a {
 }
 
 .add-btn:hover {
+  padding-left: 50px;
   color: white;
 }
 
@@ -72,6 +77,13 @@ h3 {
   padding-right: 30px;
 }
 
+.card-img-top {
+  max-height: auto;
+  min-height: auto;
+  object-fit: cover;
+}
+
+
 .card-title {
   font-size: 12px;
 }
@@ -79,4 +91,5 @@ h3 {
 .card-text {
   font-size: 10px;
 }
+
 
