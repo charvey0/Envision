@@ -1,12 +1,8 @@
 <div class="sidebar">
-  <header>
-    {{#if loggedIn}}
-    <a href="profilepage">{{first_name}} {{last_name}}</a>
-    {{else}}
-    <a href="/login">Log In</a>
-    {{/if}}
-  </header>
   {{#if loggedIn}}
+  <header>
+    <a href="/api/users/artworks">{{first_name}} {{last_name}}</a>
+  </header>
   <ul>
     <li>
       <a href="/api/post">
@@ -15,10 +11,6 @@
       </a>
     </li>
     <li><a href="/api/users/artworks">Artworks</a></li>
-  </ul>
-  {{else}}
-  <ul>
-
   </ul>
   {{/if}}
 </div>
@@ -66,34 +58,9 @@
       </p>
     </div>
   </div>
-
-  {{!--
-  <div class="container about mt-5">
-    <h3>
-      About us:
-    </h3>
-    <p> Envision is a place where students and teachers can come together to interact through artwork! If logged in,
-      your
-      fellow peers are
-      able to view and or comment on your masterpieces. Teachers can also view and give feedback. Sign up and choose
-      your
-      role to begin!</p>
-  </div> --}}
   {{/if}}
 </div>
 
 {{#if loggedIn}}
 <script src="logout.js"></script>
-{{!--
-<script src="eventlisteners.js"></script> --}}
 {{/if}}
-
-{{!-- <nav>
-  <!-- Conditionally render login or logout links -->
-  {{#if logged_in}}
-  <a href="/profile">profile</a> |
-  <button class="no-button" id="logout">logout</button>
-  {{else}}
-  <a href="/login">login</a>
-  {{/if}}
-</nav> --}}

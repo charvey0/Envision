@@ -4,6 +4,7 @@ const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   res.render('homepage', {
+    arwork: true,
     loggedIn: req.session.loggedIn,
     first_name: req.session.first_name,
     last_name: req.session.last_name,
@@ -12,7 +13,7 @@ router.get('/', async (req, res) => {
 
 router.get('/login', (req, res) => {
   if (req.session.loggedIn) {
-    res.redirect('/');
+    res.redirect('/users/artworks');
     return;
   }
   res.render('login', { loginOrSignupPage: true });

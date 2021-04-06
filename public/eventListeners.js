@@ -36,6 +36,9 @@ async function addArtwork(event) {
     console.log(`${artwork_title}\n${grade_value}\n${artwork_links}\n${description_artwork}`);
 }
 
+
+
+
 document
     .querySelector("#add-artwork")
     .addEventListener("submit", addArtwork);

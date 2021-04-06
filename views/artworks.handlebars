@@ -1,6 +1,6 @@
 <div class="sidebar">
     <header>
-        <a href="profilepage">{{first_name}} {{last_name}}</a>
+        <a href="/api/users/artworks">{{first_name}} {{last_name}}</a>
     </header>
     <ul>
         <li>
@@ -38,7 +38,7 @@
             </div>
         </div>
     </nav>
-    <div class="row d-flex justify-content-center">
+    <div class="row d-flex justify-content-center artwork-list">
         {{#if artworks.length}}
         {{#each artworks as |artwork|}}
         <div class="card col-md-3 m-3">
@@ -56,7 +56,8 @@
 
                 <h5 class="card-title"><a href="{{artwork.links}}" target="_blank">{{artwork.title}}</a></h5>
                 <p class="card-text">{{artwork.description}}</p>
-                <a href="{{artwork.links}}" target="_blank" class="btn btn-primary">View Artwork</a>
+                <a href="{{artwork.links}}" target="_blank" class="btn btn-sm btn-color">View Artwork</a>
+                <button class="btn btn-sm btn-danger delete-artwork-btn" data-id="{{artwork.id}}">DELETE</button>
             </div>
             <div class="card-footer">
                 <small class="text-muted">Submited: {{artwork.date_created}}</small>
@@ -72,4 +73,5 @@
 
 {{#if loggedIn}}
 <script src="../../logout.js"></script>
+<script src="../../delete-artwork.js"></script>
 {{/if}}
