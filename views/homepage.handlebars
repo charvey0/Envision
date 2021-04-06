@@ -1,31 +1,12 @@
-<nav class="navbar" style="background-color: gray;">
-  <div class="ml-4 navbar-brand">
-    <img src="/assets/pictures/favicon.ico" width="35" height="35" class="d-inline-block mr-2 mb-3" alt="Envision">
-    <a href="/">
-      <h1 class="d-inline-block mb-0" style="color: black;">Envision</h1>
-    </a>
-  </div>
-
-  <div class="navbar-brand">
-    <div class="navbar-brand">
-      {{#if loggedIn}}
-      <button id="logout" type="button" class="btn btn-light text-dark me-2">LogOut</button>
-      {{else}}
-      <a href="/login">
-        <button type="button" class="btn btn-light text-dark me-2">LogIn</button>
-      </a>
-      <a href="signup">
-        <button type="button" class="btn btn-color">Sign-up</button>
-      </a>
-      {{/if}}
-    </div>
-  </div>
-</nav>
-{{#if loggedIn}}
 <div class="sidebar">
   <header>
-    <h1><a href="profilepage">{{first_name}} {{last_name}}</h1></a>
+    {{#if loggedIn}}
+    <a href="profilepage">{{first_name}} {{last_name}}</a>
+    {{else}}
+    <a href="/login">Log In</a>
+    {{/if}}
   </header>
+  {{#if loggedIn}}
   <ul>
     <li>
       <a href="/api/post">
@@ -35,21 +16,72 @@
     </li>
     <li><a href="/api/users/artworks">Artworks</a></li>
   </ul>
-</div>
-<section class="container">
+  {{else}}
+  <ul>
 
-</section>
-{{else}}
-<div class="container about">
-  <h3>
-    About us:
-  </h3>
-  <p> Envision is a place where students and teachers can come together to interact through artwork! If logged in, your
-    fellow peers are
-    able to view and or comment on your masterpieces. Teachers can also view and give feedback. Sign up and choose your
-    role to begin!</p>
+  </ul>
+  {{/if}}
 </div>
-{{/if}}
+<div class="main">
+  <nav class="navbar" style="background-color: gray;">
+    <div class="ml-1 navbar-brand">
+      <img src="/assets/pictures/favicon.ico" width="35" height="35" class="d-inline-block mr-2 mb-3" alt="Envision">
+      <a href="/">
+        <h1 class="d-inline-block mb-0" style="color: black;">Envision</h1>
+      </a>
+    </div>
+
+    <div class="navbar-brand">
+      <div class="navbar-brand">
+        {{#if loggedIn}}
+        <button id="logout" type="button" class="btn btn-light text-dark me-2">LogOut</button>
+        {{else}}
+        <a href="/login">
+          <button type="button" class="btn btn-light text-dark me-2">LogIn</button>
+        </a>
+        <a href="/signup">
+          <button type="button" class="btn btn-color">Sign-up</button>
+        </a>
+        {{/if}}
+      </div>
+    </div>
+  </nav>
+  {{#if loggedIn}}
+  <div>
+    {{!-- profile or something --}}
+  </div>
+  {{else}}
+  <div class="row d-flex justify-content-center">
+    <div class="jumbotron col-10 mt-3">
+      <h1 class="display-4">About us:</h1>
+      <p class="lead">Envision is a place where students and teachers can come together to interact through artwork! If
+        logged in, your fellow peers are able to view and or comment on your masterpieces. Teachers can also view and
+        give
+        feedback. </p>
+      <hr class="my-4">
+      <p>Sign up and choose
+        your role to begin!</p>
+      <p class="lead">
+        <a class="btn btn-color btn-lg " href="/signup">Sign Up</a>
+      </p>
+    </div>
+  </div>
+
+  {{!--
+  <div class="container about mt-5">
+    <h3>
+      About us:
+    </h3>
+    <p> Envision is a place where students and teachers can come together to interact through artwork! If logged in,
+      your
+      fellow peers are
+      able to view and or comment on your masterpieces. Teachers can also view and give feedback. Sign up and choose
+      your
+      role to begin!</p>
+  </div> --}}
+  {{/if}}
+</div>
+
 {{#if loggedIn}}
 <script src="logout.js"></script>
 {{!--

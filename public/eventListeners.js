@@ -5,8 +5,9 @@ async function addArtwork(event) {
 
     const artwork_title = document.querySelector('#artwork-title').value.trim();
     const grade_value = document.querySelector('#grade-value').value.trim();
-    const artwork_links = document.querySelector('#artwork-links').value.trim();
+    const artwork_link = document.querySelector('#artwork-link').value.trim();
     const description_artwork = document.querySelector('#description-artwork').value.trim();
+    const image_link = document.querySelector('#image-link').value.trim();
 
     // var form = document.getElementById("add-artwork");
     // var formData = new FormData(form);
@@ -16,8 +17,10 @@ async function addArtwork(event) {
         body: JSON.stringify({
             artwork_title,
             grade_value,
-            artwork_links,
-            description_artwork
+            artwork_link,
+            description_artwork,
+            image_link,
+
         }),
         // formData,
         headers: { 'Content-Type': 'application/json' },

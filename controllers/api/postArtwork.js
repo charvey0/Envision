@@ -4,7 +4,7 @@ const withAuth = require('../../utils/auth')
 const { User, Artwork } = require('../../models');
 
 router.get('/', (req, res) => {
-    res.render('artwork', {
+    res.render('postArtwork', {
         loggedIn: req.session.loggedIn
     })
 })
@@ -17,7 +17,8 @@ router.post('/submit', withAuth, async (req, res) => {
             title: req.body.artwork_title,
             grade_level: req.body.grade_value,
             description: req.body.description_artwork,
-            links: req.body.artwork_links,
+            links: req.body.artwork_link,
+            image_link: req.body.image_link,
         });
         console.log(newArtwork);
         res.status(200).json(newArtwork);
