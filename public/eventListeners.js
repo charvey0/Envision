@@ -25,7 +25,8 @@ async function addArtwork(event) {
     if (response.ok) {
         console.log('success');
         // Relocate to artworks
-        // document.location.replace('/');
+        document.location.replace('/api/users/profile');
+        // succesSubmited()
     } else {
         alert(response.statusText);
     }

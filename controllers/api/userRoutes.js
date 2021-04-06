@@ -1,6 +1,49 @@
 const router = require('express').Router();
-const { User } = require('../../models');
+const { User, Artwork } = require('../../models');
 const withAuth = require('../../utils/auth');
+
+router.get('/profile', withAuth, async (req, res) => {
+  try {
+    // Find the logged in user based on the session ID
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ['password'] },
+      include: [{ model: Artwork }],
+    });
+
+    const user = userData.get({ plain: true });
+
+    res.render('profilepage', {
+      ...user,
+      loggedIn: true
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+
+router.get('/artworks/:id', async (req, res) => {
+  try {
+    const artworkData = await Artwork.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ['first_name'],
+        }
+      ],
+    });
+
+    const artwork = artworkData.get({ plain: true });
+
+    res.render('artwork', {
+      ...artwork,
+      loggedIn: req.session.loggedIn
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+})
 
 router.post('/', async (req, res) => {
   // console.log(req.body);
