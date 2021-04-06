@@ -34,7 +34,7 @@ router.get('/artworks/:id', async (req, res) => {
     });
 
     const artwork = artworkData.get({ plain: true });
-
+console.log(artworkData);
     res.render('artworks', {
       ...artwork,
       loggedIn: req.session.loggedIn
