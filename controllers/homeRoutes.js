@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
 
 router.get('/login', (req, res) => {
   if (req.session.loggedIn) {
-    res.redirect('/users/artworks');
+    res.redirect('/api/users/artworks');
     return;
   }
   res.render('login', { loginOrSignupPage: true });

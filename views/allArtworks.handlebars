@@ -42,31 +42,28 @@
     <div class="row d-flex justify-content-center artwork-list">
         {{#if artworks.length}}
         {{#each artworks as |artwork|}}
-        <div class="card col-md-3 m-3">
-            {{#if artwork.image_link}}
-            <a href="{{artwork.image_link}}" target="_blank">
-                <img class="card-img-top p-2" src="{{artwork.image_link}}" alt="Card image cap">
+        <div class="card col-md-3 m-4" style="padding: 0;">
 
-            </a>
-
-            {{else}}
-            <img class="card-img-top p-2" src="https://loremflickr.com/320/240/random={{artwork.id}}"
-                alt="Card image cap">
-            {{/if}}
+            <div class="card-header">
+                Grade level: {{artwork.grade_level}}-th
+            </div>
             <div class="card-body">
-
                 <h5 class="card-title"><a href="{{artwork.links}}" target="_blank">{{artwork.title}}</a></h5>
                 <p class="card-text">{{artwork.description}}</p>
                 <a href="{{artwork.links}}" target="_blank" class="btn btn-sm btn-color">View Artwork</a>
-                <button class="btn btn-sm btn-danger delete-artwork-btn" data-id="{{artwork.id}}">DELETE</button>
             </div>
             <div class="card-footer">
-                <small class="text-muted">Submited: {{artwork.date_created}}</small>
+                <small class="text-muted">
+                    Submited by: {{artwork.user.first_name}} {{artwork.user.last_name}}
+                    <br>
+
+
+                </small>
             </div>
         </div>
         {{/each}}
         {{else}}
-        <h3 class="mt-5 bg-info text-white">No artworks submited</h3>
+        <h3 class="mt-5 bg-info text-white">No artworks submited at all</h3>
         {{/if}}
     </div>
 
