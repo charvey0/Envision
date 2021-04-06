@@ -1,9 +1,9 @@
 body {
-      background-color: #e7e7e7;
+  background-color: #e7e7e7;
 }
 
 .btn-color {
-    background-color: #209CEE;
+  background-color: #209cee;
 }
 
 .sidebar {
@@ -22,7 +22,8 @@ body {
   background: #063146;
 }
 
-.sidebar ul a, .add-btn{
+.sidebar ul a,
+.add-btn {
   display: block;
   height: 100%;
   width: 100%;
@@ -37,11 +38,11 @@ ul li:hover a {
 }
 
 .add-btn {
-    padding: 0px 0px 0px 5px !important; 
+  padding: 0px 0px 0px 5px !important;
 }
 
 .add-btn:hover {
-    color: white;
+  color: white;
 }
 
 /* .add-btn:hover {
@@ -50,3 +51,26 @@ ul li:hover a {
 /* .btn-dark-blue {
     color: white;
 } */
+
+.about {
+  font-size: 12px;
+  text-align: center;
+}
+
+h3 {
+  padding-top: 2rem;
+  font-size: 15px;
+}
+
+.card {
+  padding-left: 2rem;
+  padding-bottom: 1rem;
+}
+
+.card-title {
+  font-size: 12px;
+}
+
+.card-text {
+  font-size: 10px;
+}

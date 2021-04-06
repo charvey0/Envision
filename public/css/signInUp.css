@@ -26,24 +26,25 @@ body {
   z-index: 2;
 }
 
-.form-signin input[type="email"] {
+.form-signin input[type='email'] {
   margin-bottom: -1px;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }
 
-.form-signin input[type="password"] {
+.form-signin input[type='password'] {
   margin-bottom: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
 
 .btn-color {
-    background-color: #209CEE;
+  background-color: #209cee;
 }
 
- @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}
+

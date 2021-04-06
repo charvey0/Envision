@@ -9,37 +9,93 @@
         </div>
     </nav>
 
-
-    <div class="sidebar">
-        <header>Name</header>
-        <ul>
-            <li>
-                <button type="button" class="btn add-btn">
-                    <i class="fas fa-plus-circle mr-2"></i>Add artwork
-                </button>
-            </li>
-            <li><a href="#">Artworks</a></li>
-        </ul>
-    </div>
-
-
     <div class="row">
-        {{#if artworks.length}}
-        <div class="col-md-6 artwork-list">
-            <h3>Current Projects:</h3>
-
-            {{#each artworks as |artwork|}}
-            <div class="row mb-2">
-                <div class="col-md-8">
-                    <h4><a href="/artwork/{{artwork.id}}">{{artwork.title}}</a></h4>
-                </div>
-                <div class="col-md-4">
-                    <button class="btn btn-sm btn-danger" data-id="{{artwork.id}}">DELETE</button>
+        <div class="col">
+            <div class="container">
+                <div class="sidebar">
+                    <header>Name</header>
+                    <ul>
+                        <li>
+                            <button type="button" class="btn add-btn">
+                                <i class="fas fa-plus-circle mr-2"></i>Add artwork
+                            </button>
+                        </li>
+                        <li><a href="#">Artworks</a></li>
+                    </ul>
                 </div>
             </div>
-            {{/each}}
         </div>
-        {{/if}}
+        <div class="container">
+            <div class="col">
+                <div id="one" class="card" style="width: 18rem">
+                    <img src="https://render.fineartamerica.com/images/images-profile-flow/400/images/artworkimages/mediumlarge/1/frank-heather-perry.jpg"
+                        class="card-img-top" alt="Frank" />
+                    <div class="card-body">
+                        <h5 class="card-title">The Frank</h5>
+                        <p class="card-text">
+                            Some quick example text to build on the card title and make up
+                            the bulk of the card's content.
+                        </p>
+                        <button class="btn btn-block btn-primary">
+                            <i class="fa fa-thumbs-up">Like</i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="col">
+                <div id="two" class="card" style="width: 18rem">
+                    <img src="https://m.media-amazon.com/images/I/51h0Pi6cPeL._AC_SL1024_.jpg" class="card-img-top"
+                        alt="Squid" />
+                    <div class="card-body">
+                        <h5 class="card-title">Squidward</h5>
+                        <p class="card-text">
+                            Some quick example text to build on the card title and make up
+                            the bulk of the card's content.
+                        </p>
+                        <button class="btn btn-block btn-primary">
+                            <i class="fa fa-thumbs-up">Like</i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="col">
+                <div id="three" class="card" style="width: 18rem">
+                    <img src="https://i0.wp.com/800002.xyz/files/funotic/art/consumerism_pop_culture_13.jpg?w=618&ssl=1"
+                        class="card-img-top" alt="..." />
+                    <div class="card-body">
+                        <h5 class="card-title">Ya Filthy Animal</h5>
+                        <p class="card-text">
+                            Some quick example text to build on the card title and make up
+                            the bulk of the card's content.
+                        </p>
+                        <button class="btn btn-block btn-primary">
+                            <i class="fa fa-thumbs-up">Like</i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="col">
+                <div id="four" class="card" style="width: 18rem">
+                    <img src="https://i.kym-cdn.com/entries/icons/original/000/027/917/Screen_Shot_2018-12-20_at_12.59.02_PM.jpg"
+                        class="card-img-top" alt="..." />
+                    <div class="card-body">
+                        <h5 class="card-title">Oh No Boys</h5>
+                        <p class="card-text">
+                            Some quick example text to build on the card title and make up
+                            the bulk of the card's content.
+                        </p>
+                        <button class="btn btn-block btn-primary">
+                            <i class="fa fa-thumbs-up">Like</i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
     </div>
 
 

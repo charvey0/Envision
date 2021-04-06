@@ -121,6 +121,14 @@ router.post('/logout', (req, res) => {
   }
 });
 
+//Profile route
+router.get('/profile', (req, res) => {
+  if (req.session.loggedIn) {
+    res.status(200);
+    console.log('signed into profile!');
+  }
+  res.render('profilepage');
+});
 //Post, Comment
 // router.get('/', (req, res) => {
 //   User.findAll({
