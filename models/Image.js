@@ -14,14 +14,21 @@ Image.init(
         url: {
             type: DataTypes.STRING,
             allowNull: false,
-        }
+        },
+        // artwork_id: {
+        //     type: DataTypes.INTEGER,
+        //     references: {
+        //         model: "artwork",
+        //         key: "id",
+        //     }
+        // }
     },
     {
         sequelize,
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'Image',
+        modelName: 'image',
     }
 );
 

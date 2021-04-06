@@ -6,5 +6,29 @@
         "grade_level": "9",
         "links": "sample.com",
         "file_path": "hz"
+    },
+    {
+        "user_id": 2,
+        "title": "Node fetch",
+        "description": "Presentation on how to fetch with node.js in less then 15 minutes, really helpful.",
+        "grade_level": "9",
+        "links": "https://www.youtube.com/watch?v=iFUEQtQQQjM",
+        "file_path": ""
+    },
+    {
+        "user_id": 2,
+        "title": "Node.js Tutorial",
+        "description": "Node.js Tutorial for Beginners: Learn Node in 1 Hour",
+        "grade_level": "10",
+        "links": "https://www.youtube.com/watch?v=TlB_eWDSMt4",
+        "file_path": ""
+    },
+    {
+        "user_id": 2,
+        "title": "JavaScript Tutorial",
+        "description": "Watch this JavaScript tutorial for beginners to learn JavaScript basics in one hour.",
+        "grade_level": "11",
+        "links": "https://www.youtube.com/watch?v=W6NZfCO5SIk",
+        "file_path": ""
     }
 ]

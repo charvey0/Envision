@@ -12,7 +12,7 @@ const loginFormHandler = async (event) => {
       body: JSON.stringify({ email, password }),
       headers: { 'Content-Type': 'application/json' },
     });
-    console.log('login res: ', await response.json());
+    // console.log('login res: ', await response.json());
     if (response.ok) {
       // If successful, redirect the browser to the home page
       document.location.replace('/');
@@ -20,7 +20,7 @@ const loginFormHandler = async (event) => {
       alert(response.statusText);
     }
   }
-  console.log(email + password);
+  // console.log(email + password);
 };
 
 document

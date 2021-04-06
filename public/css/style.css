@@ -6,16 +6,32 @@ body {
   background-color: #209cee;
 }
 
+.btn-color:hover {
+ background-color: #148cdb;
+}
+
+a:hover {
+ text-decoration: none;
+}
+
 .sidebar {
-  position: absolute;
-  left: 0px;
-  width: 250px;
   height: 100%;
+  width: 160px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  /* background-color: #209cee; */
+  overflow-x: hidden;
+  padding-top: 20px;
   background: #042331;
 }
-.container {
-  padding: 0;
+
+.main {
+  margin-left: 160px; /* Same as the width of the sidenav */
 }
+
+
 .sidebar header {
   font-size: 22px;
   color: white;
@@ -30,29 +46,29 @@ body {
   height: 100%;
   width: 100%;
   line-height: 65px;
-  font-size: 20px;
+  font-size: 12px;
   color: white;
-  padding-left: 40px;
+  padding-left: 2px;
   border-bottom: 1px solid black;
 }
 ul li:hover a {
-  padding-left: 50px;
+  padding-left: 10px;
 }
 
 .add-btn {
-  padding: 0px 0px 0px 5px !important;
+  padding: 0px 0px 0px 1px !important;
 }
 
 .add-btn:hover {
   color: white;
 }
 
-/* .add-btn:hover {
+.add-btn:hover {
     color: white;
 } */
 /* .btn-dark-blue {
     color: white;
-} */
+}
 
 .about {
   font-size: 12px;
@@ -64,18 +80,37 @@ h3 {
   font-size: 15px;
 }
 
-.card {
+/* .card {
   padding-left: 2rem;
   padding-bottom: 1rem;
   padding-top: 15px;
   margin-top: 10px;
   padding-right: 30px;
-}
+} */
 
-.card-title {
+/* .card-title {
   font-size: 12px;
 }
 
 .card-text {
   font-size: 10px;
+} */
+
+.text-muted {
+  font-size: 8px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
+
+@media screen and (max-width: 522px) {
+  .sidebar {
+    /* display: none; */
+    padding-top: 15px;
+    width: 120px;
+}
+  .sidebar a {font-size: 18px;}
+  .main {margin-left: 120px;}
 }

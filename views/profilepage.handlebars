@@ -1,99 +1,46 @@
-<body>
-    <nav class="navbar" style="background-color: gray">
-        <div class="ml-4 navbar-brand">
-            <img src="/assets/pictures/favicon.ico" width="35" height="35" class="d-inline-block mr-2 mb-3"
-                alt="Envision" />
-            <a href="/">
-                <h1 class="d-inline-block mb-0" style="color: black">Envision</h1>
+<nav class="navbar" style="background-color: gray;">
+    <div class="ml-4 navbar-brand">
+        <img src="/assets/pictures/favicon.ico" width="35" height="35" class="d-inline-block mr-2 mb-3" alt="Envision">
+        <a href="/">
+            <h1 class="d-inline-block mb-0" style="color: black;">Envision</h1>
+        </a>
+    </div>
+    <div class="navbar-brand">
+        <div class="navbar-brand">
+            {{#if loggedIn}}
+            <button id="logout" type="button" class="btn btn-light text-dark me-2">LogOut</button>
+            {{else}}
+            <a href="/login">
+                <button type="button" class="btn btn-light text-dark me-2">LogIn</button>
             </a>
+            <a href="signup">
+                <button type="button" class="btn btn-color">Sign-up</button>
+            </a>
+            {{/if}}
         </div>
-    </nav>
-<break> </break>
-    <div class="row">
-        <div class="col">
-            <div class="container">
-                <div class="sidebar">
-                    <header>Name</header>
-                    <ul>
-                        <li>
-                            <button type="button" class="btn add-btn">
-                                <i class="fas fa-plus-circle mr-2"></i>Add artwork
-                            </button>
-                        </li>
-                        <li><a href="#">Artworks</a></li>
-                    </ul>
-                         <button style="position: absolute; right:0; bottom: 0; width:inherit" onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
-                </div>
+    </div>
+</nav>
+<div class="row d-flex justify-content-center">
+    {{#if artworks.length}}
+    {{#each artworks as |artwork|}}
+    <div class="card col-sm-3 m-3">
+        <img class="card-img-top p-2" src="https://loremflickr.com/320/240/random={{artwork.id}}" alt="Card image cap">
+        <div class="card-body">
+
+            <h5 class="card-title"><a href="{{artwork.links}}" target="_blank">{{artwork.title}}</a></h5>
+            <p class="card-text">{{artwork.description}}</p>
+            <a href="{{artwork.links}}" target="_blank" class="btn btn-primary">View Artwork</a>
         </div>
+        <div class="card-footer">
+            <small class="text-muted">Submited: {{artwork.date_created}}</small>
         </div>
-        <div class="container-md" style="width:min-content" id="artSidebar">
-        <div class="col">
-                <div id="one" class="card" style="width: 18rem">
-                    <img src="https://render.fineartamerica.com/images/images-profile-flow/400/images/artworkimages/mediumlarge/1/frank-heather-perry.jpg"
-                        class="card-img-top" alt="Frank" />
-                    <div class="card-body">
-                        <h5 class="card-title">The Frank</h5>
-                        <p class="card-text">
-                            Some quick example text to build on the card title and make up
-                            the bulk of the card's content.
-                        </p>
-                        <button class="btn btn-block btn-primary">
-                            <i class="fa fa-thumbs-up">Like</i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <br>
-            <div class="col">
-                <div id="two" class="card" style="width: 18rem">
-                    <img src="https://m.media-amazon.com/images/I/51h0Pi6cPeL._AC_SL1024_.jpg" class="card-img-top"
-                        alt="Squid" />
-                    <div class="card-body">
-                        <h5 class="card-title">Squidward</h5>
-                        <p class="card-text">
-                            Some quick example text to build on the card title and make up
-                            the bulk of the card's content.
-                        </p>
-                        <button class="btn btn-block btn-primary">
-                            <i class="fa fa-thumbs-up">Like</i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <br>
-            <div class="col">
-                <div id="three" class="card" style="width: 18rem">
-                    <img src="https://i0.wp.com/800002.xyz/files/funotic/art/consumerism_pop_culture_13.jpg?w=618&ssl=1"
-                        class="card-img-top" alt="..." />
-                    <div class="card-body">
-                        <h5 class="card-title">Ya Filthy Animal</h5>
-                        <p class="card-text">
-                            Some quick example text to build on the card title and make up
-                            the bulk of the card's content.
-                        </p>
-                        <button class="btn btn-block btn-primary">
-                            <i class="fa fa-thumbs-up">Like</i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <br>
-            <div class="col">
-                <div id="four" class="card" style="width: 18rem">
-                    <img src="https://i.kym-cdn.com/entries/icons/original/000/027/917/Screen_Shot_2018-12-20_at_12.59.02_PM.jpg"
-                        class="card-img-top" alt="..." />
-                    <div class="card-body">
-                        <h5 class="card-title">Oh No Boys</h5>
-                        <p class="card-text">
-                            Some quick example text to build on the card title and make up
-                            the bulk of the card's content.
-                        </p>
-                        <button class="btn btn-block btn-primary">
-                            <i class="fa fa-thumbs-up">Like</i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
+    </div>
+    {{/each}}
+    {{else}}
+    <h3 class="mt-5 bg-info text-white">No artworks submited</h3>
+    {{/if}}
 </div>
-</body>
+
+{{#if loggedIn}}
+<script src="../../logout.js"></script>
+{{/if}}
