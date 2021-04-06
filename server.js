@@ -74,3 +74,9 @@ sequelize.sync({ force: false }).then(() => {
 });
 
 // app.listen(PORT, () => console.log('Now listening'));
+
+
+// DB_NAME = envision_db
+// DB_PASSWORD = password
+// DB_USER = root
+// SESSION_SECRET = super_secret_session
