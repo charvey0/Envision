@@ -10,22 +10,22 @@ router.get('/', (req, res) => {
 })
 
 router.post('/submit', withAuth, async (req, res) => {
-    // console.log(req);
-    // try {
-    //     const newArtwork = await Artwork.create({
-    //         user_id: req.session.user_id,
-    //         title: req.body.artwork_title,
-    //         grade_level: req.body.grade_value,
-    //         description: req.body.description_artwork,
-    //         links: req.body.artwork_links,
-    //     });
-    //     console.log(newArtwork);
-    //     res.status(200).json(newArtwork);
-    //     // res.render('')
-    // } catch (err) {
-    //     console.log(err);
-    //     res.status(500).json(err)
-    // }
+    console.log(req);
+    try {
+        const newArtwork = await Artwork.create({
+            user_id: req.session.user_id,
+            title: req.body.artwork_title,
+            grade_level: req.body.grade_value,
+            description: req.body.description_artwork,
+            links: req.body.artwork_links,
+        });
+        console.log(newArtwork);
+        res.status(200).json(newArtwork);
+        // res.render('')
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err)
+    }
 })
 
 

@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { User, Artwork } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-router.get('/profile', withAuth, async (req, res) => {
+router.get('/artworks', withAuth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
@@ -12,7 +12,7 @@ router.get('/profile', withAuth, async (req, res) => {
 
     const user = userData.get({ plain: true });
 
-    res.render('profilepage', {
+    res.render('artworks', {
       ...user,
       loggedIn: true
     });
@@ -35,7 +35,7 @@ router.get('/artworks/:id', async (req, res) => {
 
     const artwork = artworkData.get({ plain: true });
 
-    res.render('artwork', {
+    res.render('artworks', {
       ...artwork,
       loggedIn: req.session.loggedIn
     });

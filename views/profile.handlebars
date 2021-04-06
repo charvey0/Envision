@@ -1,46 +1,68 @@
-<body>
-    <nav class="navbar" style="background-color: gray">
-        <div class="ml-4 navbar-brand">
-            <img src="/assets/pictures/favicon.ico" width="35" height="35" class="d-inline-block mr-2 mb-3"
-                alt="Envision" />
-            <a href="/">
-                <h1 class="d-inline-block mb-0" style="color: black">Envision</h1>
-            </a>
-        </div>
-    </nav>
-
-
-    <div class="sidebar">
-        <header>Name</header>
-        <ul>
-            <li>
-                <button type="button" class="btn add-btn">
-                    <i class="fas fa-plus-circle mr-2"></i>Add artwork
-                </button>
-            </li>
-            <li><a href="#">Artworks</a></li>
-        </ul>
+<nav class="navbar" style="background-color: gray;">
+    <div class="ml-4 navbar-brand">
+        <img src="/assets/pictures/favicon.ico" width="35" height="35" class="d-inline-block mr-2 mb-3" alt="Envision">
+        <a href="/">
+            <h1 class="d-inline-block mb-0" style="color: black;">Envision</h1>
+        </a>
     </div>
 
+    <div class="navbar-brand">
+        <div class="navbar-brand">
+            {{#if loggedIn}}
+            <button id="logout" type="button" class="btn btn-light text-dark me-2">LogOut</button>
+            {{else}}
+            <a href="/login">
+                <button type="button" class="btn btn-light text-dark me-2">LogIn</button>
+            </a>
+            <a href="signup">
+                <button type="button" class="btn btn-color">Sign-up</button>
+            </a>
+            {{/if}}
+        </div>
+    </div>
+</nav>
 
-    <div class="row">
-        {{#if artworks.length}}
-        <div class="col-md-6 artwork-list">
-            <h3>Current Projects:</h3>
-
+<break> </break>
+<div class="row">
+    <div class="col-sm-3">
+        <div class="container">
+            <div class="sidebar">
+                <header>{{first_name}} {{last_name}}</header>
+                <ul>
+                    <li>
+                        <a href="/api/post">
+                            <button type="button" class="btn add-btn" id="add-artwork"><i
+                                    class="fas fa-plus-circle mr-2"></i>Add
+                                artwork</button>
+                        </a>
+                    </li>
+                    <li><a href="#">Artworks</a></li>
+                </ul>
+                <button style="position: absolute; right:0; bottom: 0; width:inherit" onclick="topFunction()" id="myBtn"
+                    title="Go to top">Top</button>
+            </div>
+        </div>
+    </div>
+    {{#if artworks.length}}
+    <div class="col-sm-9">
+        <div class="card-group mt-3">
             {{#each artworks as |artwork|}}
-            <div class="row mb-2">
-                <div class="col-md-8">
-                    <h4><a href="/artwork/{{artwork.id}}">{{artwork.title}}</a></h4>
+            <div class="card col-sm-3 m-1">
+                <img class="card-img-top p-2" src="https://loremflickr.com/320/240/random={{artwork.id}}"
+                    alt="Card image cap">
+                <div class="card-body">
+
+                    <h5 class="card-title"><a href="{{artwork.links}}" target="_blank">{{artwork.title}}</a></h5>
+                    <p class="card-text">{{artwork.description}}</p>
+                    <a href="{{artwork.links}}" target="_blank" class="btn btn-primary">View Artwork</a>
                 </div>
-                <div class="col-md-4">
-                    <button class="btn btn-sm btn-danger" data-id="{{artwork.id}}">DELETE</button>
+                <div class="card-footer">
+                    <small class="text-muted">Submited: {{artwork.date_created}}</small>
                 </div>
             </div>
             {{/each}}
         </div>
-        {{/if}}
+
     </div>
-
-
-</body>
+    {{/if}}
+</div>

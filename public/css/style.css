@@ -7,15 +7,20 @@ body {
 }
 
 .sidebar {
-  position: sticky;
+  position: relative;
   left: 0px;
-  /* width: 250px; */
-  height: 500px;
+  width: 250px;
+  height: 100%;
   background: #042331;
 }
 .container {
   padding: 0;
 }
+
+.container-padding {
+  padding-left: 250px;
+}
+
 .sidebar header {
   font-size: 22px;
   color: white;
@@ -47,12 +52,12 @@ ul li:hover a {
   color: white;
 }
 
-/* .add-btn:hover {
+.add-btn:hover {
     color: white;
 } */
 /* .btn-dark-blue {
     color: white;
-} */
+}
 
 .about {
   font-size: 12px;
@@ -64,19 +69,22 @@ h3 {
   font-size: 15px;
 }
 
-.card {
+/* .card {
   padding-left: 2rem;
   padding-bottom: 1rem;
   padding-top: 15px;
   margin-top: 10px;
   padding-right: 30px;
-}
+} */
 
-.card-title {
+/* .card-title {
   font-size: 12px;
 }
 
 .card-text {
   font-size: 10px;
-}
+} */
 
+.text-muted {
+  font-size: 8px;
+}
