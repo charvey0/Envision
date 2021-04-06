@@ -2,10 +2,8 @@
 
 const Artwork = require('./Artwork');
 const User = require('./User');
-const Student = require('./Student');
-const Image = require('./Image');
 const Role = require('./Role');
-// const StudentArt = require('./StudentArt')
+// const Image = require('./Image');
 
 Artwork.belongsTo(User, {
   foreignKey: 'user_id',
@@ -23,20 +21,14 @@ User.belongsTo(Role, {
 Role.hasMany(User, {
   foreignKey: 'role_id',
 });
-// user.belongsToMany(Artwork, {
-//     through: {
-//         model: StudentArt,
-//         unique: false,
-//     },
-//     as: 'artworks'
-// });
 
-// Image.hasOne
+// Artwork.hasOne(Image, {
+//   foreignKey: 'image_id',
+// });
 
 module.exports = {
   Artwork,
   User,
   Role,
   // Image,
-  // StudentArt,
 };

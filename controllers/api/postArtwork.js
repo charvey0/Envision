@@ -1,22 +1,24 @@
 const router = require('express').Router();
 // const fileUpload = require('express-fileupload');
+const withAuth = require('../../utils/auth')
 const { User, Artwork } = require('../../models');
 
 router.get('/', (req, res) => {
-    res.render('artwork', {
+    res.render('postArtwork', {
         loggedIn: req.session.loggedIn
     })
 })
 
-router.post('/submit', async (req, res) => {
-    // console.log(req);
+router.post('/submit', withAuth, async (req, res) => {
+    console.log(req);
     try {
         const newArtwork = await Artwork.create({
             user_id: req.session.user_id,
             title: req.body.artwork_title,
             grade_level: req.body.grade_value,
             description: req.body.description_artwork,
-            links: req.body.artwork_links,
+            links: req.body.artwork_link,
+            image_link: req.body.image_link,
         });
         console.log(newArtwork);
         res.status(200).json(newArtwork);
