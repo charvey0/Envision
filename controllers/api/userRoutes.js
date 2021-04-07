@@ -41,7 +41,10 @@ router.get('/allartworks', withAuth, async (req, res) => {
 
     res.render('allArtworks', {
       artworks,
-      logged_in: req.session.logged_in
+      loggedIn: req.session.loggedIn,
+      first_name: req.session.first_name,
+      last_name: req.session.last_name,
+      
     });
   } catch (err) {
     res.status(500).json(err);
@@ -63,7 +66,9 @@ router.get('/artworks/:id', async (req, res) => {
     console.log(artworkData);
     res.render('artworks', {
       ...artwork,
-      loggedIn: req.session.loggedIn
+      loggedIn: req.session.loggedIn,
+      first_name: req.session.first_name,
+      last_name: req.session.last_name
     });
   } catch (err) {
     console.log(err);
