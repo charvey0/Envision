@@ -4,7 +4,7 @@
 
 ## Link to Heroku deployment:
 
-[Envision on Heroku](https://afternoon-bastion-28646.herokuapp.com/)
+[Envision on Heroku](https://wow-envision.herokuapp.com/)
 
 ## Link to GitHub repo:
 
