@@ -32,7 +32,7 @@ const hbs = exphbs.create({ helpers });
 // const hbs = exphbs.create({});
 
 const sess = {
-  secret: process.env.SESSION_SECRET,
+  secret: "super_secret_session",
   cookie: {},
   resave: false,
   saveUninitialized: true,
