@@ -55,24 +55,27 @@ Here at Envision, we built a site where teachers and students can ideate their c
 
 This app is a mysql database and CMS-style Blog built using Model View Controller (MVC) paradigm.
 
-- Sequelize
-- Express
-- MySQL2
-- JavaScript
-- Node.js
-- Insomnia
-- Bootstrap
-- Handlebars
-- GitHub
-- Dotenv
+<ul>
+<li> Sequelize</li>
+<li>Express</li>
+<li>MySQL2</li>
+<li>JavaScript</li>
+<li>Node.js</li>
+<li>Insomnia</li>
+<li>Bootstrap</li>
+<li>Handlebars</li>
+<li>GitHub</li>
+<li>Dotenv</li>
+</ul>
 
 ## Installation
-
-1.  Clone this repo
-2.  Type **npm install** in the command line.
-3.  Connect to the database and create a table named **envision_db**.
-4.  Seed the database by entering **node seeds** in the console.
-5.  Type **node server** in the console to start the server.
+<ol>
+<li>Clone this repo</li>
+<li>Type **npm install** in the command line.</li>
+<li>Connect to the database and create a table named **envision_db**.</li>
+<li>Seed the database by entering **node seeds** in the console.</li>
+<li>Type **node server** in the console to start the server.</li>
+</ol>
 
 ## Usage
 
