@@ -41,7 +41,7 @@ router.get('/allartworks', withAuth, async (req, res) => {
 
     res.render('allArtworks', {
       artworks,
-      loggedIn: req.session.logged_in
+      loggedIn: req.session.loggedIn
     });
   } catch (err) {
     res.status(500).json(err);
