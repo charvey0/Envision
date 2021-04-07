@@ -43,22 +43,22 @@
         {{#if artworks.length}}
         {{#each artworks as |artwork|}}
         <div class="card col-md-3 m-3">
-            {{#if artwork.image_link}}
+{{!--            {{#if artwork.image_link}}
             <a href="{{artwork.image_link}}" target="_blank">
                 <img class="card-img-top p-2" src="{{artwork.image_link}}" alt="Card image cap">
 
             </a>
 
-            {{else}}
-            <img class="card-img-top p-2" src="https://loremflickr.com/320/240/random={{artwork.id}}"
+            {{else}} --}}
+            <img class="card-img-top p-2" src="https://drive.google.com/thumbnail?id={{artwork.links}}"}}
                 alt="Card image cap">
-            {{/if}}
+            {{!-- {{/if}} --}}
             <div class="card-body">
 
-                <h5 class="card-title"><a href="{{artwork.links}}" target="_blank">{{artwork.title}}</a></h5>
-                <p class="card-text">{{artwork.description}}</p>
-                <a href="{{artwork.links}}" target="_blank" class="btn btn-sm btn-color">View Artwork</a>
-                <button class="btn btn-sm btn-danger delete-artwork-btn" data-id="{{artwork.id}}">DELETE</button>
+
+                <h5 class="card-title"><a href="/api/artwork/{{artwork.id}}" target="_blank">{{artwork.title}}</a></h5>
+                <a href="/api/artwork/{{artwork.id}}" target="_blank" class="btn btn-primary">More Info</a>
+
             </div>
             <div class="card-footer">
                 <small class="text-muted">Submited: {{ format_date artwork.date_created}}</small>

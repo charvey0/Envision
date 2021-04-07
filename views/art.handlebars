@@ -1,0 +1,15 @@
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-7">
+                  <img class="card-img-top p-2" src="https://drive.google.com/thumbnail?id={{art.links}}" alt="Card image cap">
+                </div>
+                <div class="card-body col-sm-5">
+                    <h5 class="card-title"><a href="{{art.links}}" target="_blank">{{art.title}}</a></h5>
+                    <p class="card-text">{{art.description}}</p>
+                    <a href="https://drive.google.com/file/d/{{art.links}}/view?usp=sharing" target="_blank" class="btn btn-primary">View Artwork</a>
+                    <div class="card-footer" style="margin: 10px;">
+                      <small class="text-muted">Submited: {{ format_date art.date_created}}</small>
+                    </div>
+                </div>
+            </div>
+        </div>
