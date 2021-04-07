@@ -61,7 +61,7 @@
                 <button class="btn btn-sm btn-danger delete-artwork-btn" data-id="{{artwork.id}}">DELETE</button>
             </div>
             <div class="card-footer">
-                <small class="text-muted">Submited: {{artwork.date_created}}</small>
+                <small class="text-muted">Submited: {{ format_date artwork.date_created}}</small>
             </div>
         </div>
         {{/each}}
