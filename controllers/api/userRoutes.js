@@ -21,6 +21,32 @@ router.get('/artworks', withAuth, async (req, res) => {
   }
 });
 
+router.get('/allartworks', withAuth, async (req, res) => {
+  try {
+    // Find the logged in user based on the session ID
+    const artworkData = await Artwork.findAll({
+      attributes: { exclude: ['password'] },
+      include: [
+        {
+          model: User,
+          attributes: { exclude: ['password'] },
+        }
+      ],
+    });
+
+    // Serialize data so the template can read it
+    const artworks = artworkData.map((artwork) => artwork.get({ plain: true }));
+
+    console.log(artworks);
+
+    res.render('allArtworks', {
+      artworks,
+      logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 router.get('/artworks/:id', async (req, res) => {
   try {
@@ -34,7 +60,7 @@ router.get('/artworks/:id', async (req, res) => {
     });
 
     const artwork = artworkData.get({ plain: true });
-console.log(artworkData);
+    console.log(artworkData);
     res.render('artworks', {
       ...artwork,
       loggedIn: req.session.loggedIn
