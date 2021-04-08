@@ -2,6 +2,12 @@ body {
   background-color: #e7e7e7;
 }
 
+.main {
+  margin-left: 160px; /* Same as the width of the sidenav */
+  height: 100vh;
+  overflow: auto;
+}
+
 .sidebar {
   height: 100%;
   width: 160px;
@@ -22,15 +28,14 @@ body {
   font-size: 20px;
   color: white;
   line-height: 70px;
-  text-align: justify;
-  padding-left: 76px;
+  text-align: center;
   background: #063146;
 }
 
 
 .sidebar ul a,
 .add-btn {
-  display: block;
+    display: block;
   height: 100%;
   width: 100%;
   line-height: 70px;
@@ -38,7 +43,6 @@ body {
   color: white;
   padding-left: 35px;
   border-bottom: 1px solid black;
-  text-align: justify;
 }
 
 ul li:hover a {
@@ -56,7 +60,7 @@ ul li:hover a {
 
 .add-btn:hover {
     color: white;
-} */
+} 
 
 
 .btn-color {
@@ -71,11 +75,7 @@ a:hover {
  text-decoration: none;
 }
 
-.main {
-  margin-left: 160px; /* Same as the width of the sidenav */
-   height: 100vh;
-    overflow: auto;
-}
+
 
 .lightbox-gallery {
     background-image: linear-gradient(#063146, #af2465);
@@ -130,5 +130,20 @@ a:hover {
         padding-top: 25px;
         font-size: 24px
     }
+}
+
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
+
+@media screen and (max-width: 522px) {
+  .sidebar {
+    /* display: none; */
+    padding-top: 15px;
+    width: 120px;
+}
+  .sidebar a {font-size: 18px;}
+  .main {margin-left: 120px;}
 }
 
