@@ -8,7 +8,7 @@
         <div class="col-md-8 ml-2 mr-2 mr-auto float-left">
           <div class="d-flex flex-column comment-section" id="myGroup">
             <div class="bg-top-azure p-2">
-              <div class="d-flex flex-row user-info"><img class="rounded-circle" src="{{art.profile_picture}}"
+              <div class="d-flex flex-row user-info"><img class="rounded-circle" src="{{art.user.profile_picture}}"
                   width="40">
                 <div class="d-flex flex-column justify-content-start ml-2"><span
                     class="d-block font-weight-bold name">{{art.title}}</span>
@@ -39,8 +39,9 @@
               </div>
             </div>
             <div id="collapse-1" class="bg-light p-2 collapse" data-parent="#myGroup">
-              <div class="d-flex flex-row align-items-start"><img class="rounded-circle" src="{{art.profile_picture}}"
-                  width="40"><textarea class="form-control ml-1 shadow-none textarea"></textarea></div>
+              <div class="d-flex flex-row align-items-start"><img class="rounded-circle"
+                  src="{{session_profile_picture}}" width="40"><textarea
+                  class="form-control ml-1 shadow-none textarea"></textarea></div>
               <div class="mt-2 text-right">
                 <button class="btn btn-primary btn-sm shadow-none" type="button">Post
                   comment</button>
@@ -58,32 +59,35 @@
             </div> --}}
           </div>
         </div>
+        {{#each comments as |comment|}}
         <div class="col-md-8 mt-3 ml-2 mr-2 bg-white ml-auto float-right">
-          {{!-- {{#each comments as |comment|}} --}}
+
           <div class="w3-card" style="margin: 10px 0px 20px 40px;">
 
-            <div class="w3-container">
-              {{!-- <p>{{comment.body}}</p> --}}
-              <span class="font-weight-bold name">First-name Last-name</span class="font-weight-bold name">
+            <div class="d-flex flex-row user-info"><img class="rounded-circle" src="{{comment.user.profile_picture}}"
+                width="40">
+              <div class="d-flex flex-column justify-content-start ml-2"><span
+                  class="d-block font-weight-bold name">{{comment.user.first_name}} {{comment.user.last_name}}</span>
+
+              </div>
             </div>
 
             <footer class="w3-white" style="padding-left: 10px;">
-              {{!-- <p>Posted by {{comment.username}} on {{ format_date comment.createdAt}}</p> --}}
               <p>
-                Some comment will come in here
+                {{comment.comment_text}}
               </p>
-              {{!-- {{#if comment.owner }} --}}
+              {{#if comment.owner }}
               <div class="w3-bar">
-                {{!-- <a href="/api/comment/edit/{{comment.id}}" class="w3-button w3-black">Edit</a> --}}
-                {{!-- <a href="/api/comment/delete/{{comment.id}}" class="w3-button w3-black">Delete</a> --}}
+                <a href="/api/comment/edit/{{comment.id}}" class="w3-button w3-black">Edit</a>
+                <a href="/api/comment/delete/{{comment.id}}" class="w3-button w3-black">Delete</a>
               </div>
-              {{!-- {{/if}} --}}
+              {{/if}}
 
             </footer>
           </div>
-          {{!-- {{/each}} --}}
-        </div>
 
+        </div>
+        {{/each}}
       </div>
 
 

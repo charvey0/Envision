@@ -1,0 +1,17 @@
+[
+    {
+        "comment_text": "Hey, looks great!",
+        "user_id": 2,
+        "artwork_id": 1
+    },
+    {
+        "comment_text": "It says if you keep practicing, you'll get it! ",
+        "user_id": 2,
+        "artwork_id": 1
+    },
+    {
+        "comment_text": "testing purposes",
+        "user_id": 1,
+        "artwork_id": 1
+    }
+]
