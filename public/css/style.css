@@ -30,17 +30,9 @@ a:hover {
 .main {
   margin-left: 160px; /* Same as the width of the sidenav */
 }
-<<<<<<< HEAD
 .sidebar header {
   font-size: 20px;
   color: white;
-=======
-
-
-.sidebar header, .hehe {
-  font-size: 22px;
-  color:  #209cee;
->>>>>>> main
   line-height: 70px;
   text-align: justify;
   padding-left: 76px;
@@ -53,17 +45,10 @@ a:hover {
   display: block;
   height: 100%;
   width: 100%;
-<<<<<<< HEAD
   line-height: 70px;
   font-size: 20px;
   color: white;
   padding-left: 35px;
-=======
-  line-height: 65px;
-  font-size: 12px;
-  color: white;
-  padding-left: 2px;
->>>>>>> main
   border-bottom: 1px solid black;
   text-align: justify;
 }
@@ -100,7 +85,6 @@ ul li:hover a {
     color: #fff
 }
 
-<<<<<<< HEAD
 .card-img-top {
   max-height: auto;
   min-height: auto;
@@ -110,56 +94,9 @@ ul li:hover a {
 
 .card-title {
   font-size: 12px;
-=======
-.lightbox-gallery h2 {
-    font-weight: bold;
-    margin-bottom: 40px;
-    padding-top: 40px;
-    color: #fff
-}
-
-@media (max-width:767px) {
-    .lightbox-gallery h2 {
-        margin-bottom: 25px;
-        padding-top: 25px;
-        font-size: 24px
-    }
-}
-
-.lightbox-gallery .intro {
-    font-size: 16px;
-    max-width: 500px;
-    margin: 0 auto 40px
-}
-
-.lightbox-gallery .intro p {
-    margin-bottom: 0
-}
-
-.lightbox-gallery .photos {
-    padding-bottom: 20px
->>>>>>> main
 }
 
 .lightbox-gallery .item {
     padding-bottom: 30px
 }
 
-<<<<<<< HEAD
-
-=======
-@media screen and (max-height: 450px) {
-  .sidebar {padding-top: 15px;}
-  .sidebar a {font-size: 18px;}
-}
-
-@media screen and (max-width: 522px) {
-  .sidebar {
-    /* display: none; */
-    padding-top: 15px;
-    width: 120px;
-}
-  .sidebar a {font-size: 18px;}
-  .main {margin-left: 120px;}
-}
->>>>>>> main
