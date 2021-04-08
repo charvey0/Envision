@@ -54,5 +54,13 @@
         "grade_level": "10",
         "links": "",
         "file_path": "https://www.topteny.com/wp-content/uploads/2015/02/Edvard-Munch-The-Scream-1895-sbs.jpg"
+    },
+    {
+        "user_id": 2,
+        "title": "Sidebar",
+        "description": "Sidebar acting weird",
+        "grade_level": "11",
+        "links": "",
+        "file_path": "http://res.cloudinary.com/dz52vqg3p/image/upload/v1617849248/g2pa8inczy466lcs5fzx.gif"
     }
 ]
