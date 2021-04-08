@@ -8,7 +8,7 @@
         <div class="col-md-8 ml-2 mr-2 mr-auto float-left">
           <div class="d-flex flex-column comment-section" id="myGroup">
             <div class="bg-top-azure p-2">
-              <div class="d-flex flex-row user-info"><img class="rounded-circle" src="{{art.profile_picture}}"
+              <div class="d-flex flex-row user-info"><img class="rounded-circle" src="{{art.user.profile_picture}}"
                   width="40">
                 <div class="d-flex flex-column justify-content-start ml-2"><span
                     class="d-block font-weight-bold name">{{art.title}}</span>
@@ -38,14 +38,27 @@
                 </div> --}}
               </div>
             </div>
-            <div id="collapse-1" class="bg-light p-2 collapse" data-parent="#myGroup">
-              <div class="d-flex flex-row align-items-start"><img class="rounded-circle" src="{{art.profile_picture}}"
-                  width="40"><textarea class="form-control ml-1 shadow-none textarea"></textarea></div>
-              <div class="mt-2 text-right">
-                <button class="btn btn-primary btn-sm shadow-none" type="button">Post
+
+            <div id="collapse-1" class="bg-light p-2 collapse comment-form" data-parent="#myGroup">
+
+
+
+            <form id="comment-form">
+              <div class="d-flex flex-row align-items-start"><img class="rounded-circle" src="{{session_profile_picture}}"
+                  width="40">
+                <textarea class="form-control ml-1 shadow-none textarea" data-id="{{art.id}}"
+                  placeholder="Write a comment..."></textarea>
+              </div>
+              <div class="mt-2 text-right comment-form">
+                <button class="btn btn-primary btn-sm shadow-none post-comment-btn" data-id="{{art.id}}">Post
                   comment</button>
                 <button class="btn btn-outline-primary btn-sm ml-1 shadow-none" type="button">Cancel</button>
               </div>
+            </form>
+
+
+
+
             </div>
             {{!-- <div id="collapse-2" class="bg-light p-2 collapse" data-parent="#myGroup">
               <div class="d-flex flex-row align-items-start"><i class="fa fa-facebook border p-3 rounded mr-1"></i><i
@@ -58,32 +71,35 @@
             </div> --}}
           </div>
         </div>
+        {{#each comments as |comment|}}
         <div class="col-md-8 mt-3 ml-2 mr-2 bg-white ml-auto float-right">
-          {{!-- {{#each comments as |comment|}} --}}
+
           <div class="w3-card" style="margin: 10px 0px 20px 40px;">
 
-            <div class="w3-container">
-              {{!-- <p>{{comment.body}}</p> --}}
-              <span class="font-weight-bold name">First-name Last-name</span class="font-weight-bold name">
+            <div class="d-flex flex-row user-info"><img class="rounded-circle" src="{{comment.user.profile_picture}}"
+                width="40">
+              <div class="d-flex flex-column justify-content-start ml-2"><span
+                  class="d-block font-weight-bold name">{{comment.user.first_name}} {{comment.user.last_name}}</span>
+
+              </div>
             </div>
 
             <footer class="w3-white" style="padding-left: 10px;">
-              {{!-- <p>Posted by {{comment.username}} on {{ format_date comment.createdAt}}</p> --}}
               <p>
-                Some comment will come in here
+                {{comment.comment_text}}
               </p>
-              {{!-- {{#if comment.owner }} --}}
+              {{#if comment.owner }}
               <div class="w3-bar">
-                {{!-- <a href="/api/comment/edit/{{comment.id}}" class="w3-button w3-black">Edit</a> --}}
-                {{!-- <a href="/api/comment/delete/{{comment.id}}" class="w3-button w3-black">Delete</a> --}}
+                <a href="/api/comment/edit/{{comment.id}}" class="w3-button w3-black">Edit</a>
+                <a href="/api/comment/delete/{{comment.id}}" class="w3-button w3-black">Delete</a>
               </div>
-              {{!-- {{/if}} --}}
+              {{/if}}
 
             </footer>
           </div>
-          {{!-- {{/each}} --}}
-        </div>
 
+        </div>
+        {{/each}}
       </div>
 
 
@@ -95,50 +111,30 @@
 
 </div>
 
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+<script src="../../comment.js"></script>
 
 
-
-
-
-{{!-- <div class="container">
-  <div class="row m-3">
-    <div class="col-sm-7 mr-5">
-      <img class="card-img-top p-2" src="{{art.file_path}}" alt="Card image cap">
-    </div>
-    <div class="card col-sm-4" style="padding: 0;">
-      <div class="card-header">
-        <span class="float-left">Grade level: {{art.grade_level}}-th</span>
-        <br>
-        <span class="float-right">Visit repo, <a href="{{art.repo_link}}" target="_blank">here</a></span>
-      </div>
-      {{!-- {{#if (art.links.length > 35)}} --}}
-      {{!-- <a href="{{art.links}}" target="_blank">
-        <img class="card-img-top rounded-circle mx-auto d-block" src="{{art.links}}" alt="Card image cap">
-      </a>
-      <div class="card-body">
-        <h5 class="card-title"><a href="https://drive.google.com/file/d/{{art.links}}" target="_blank">{{art.title}}</a>
-        </h5>
-        <p class="card-text">{{art.description}}</p> --}}
-        {{!-- <a href="https://drive.google.com/file/d/{{art.links}}/view?usp=sharing" target="_blank"
-          class="btn btn-primary">View
-          Artwork</a> --}}
-        {{!-- <a href="{{art.links}}" target="_blank" class="btn btn-primary">View
-          Artwork</a> --}}
-        {{!--
-      </div>
-      <div class="card-footer">
-        <small class="text-muted" style="font-size: 10px;">Submited by: {{art.user.first_name}} {{art.user.last_name}}
-          <br>
-          on {{ format_date art.date_created}}
-          <br>
-
-        </small>
-
-      </div>
-    </div>
-
-
+{{!--
+<form id="comment-form">
+  <div class="d-flex flex-row align-items-start"><img class="rounded-circle" src="{{session_profile_picture}}"
+      width="40">
+    <textarea class="form-control ml-1 shadow-none textarea" data-id="{{art.id}}"
+      placeholder="Write a comment..."></textarea>
   </div>
-</div> --}}
+  <div class="mt-2 text-right comment-form">
+    <button class="btn btn-primary btn-sm shadow-none post-comment-btn" data-id="{{art.id}}">Post
+      comment</button>
+    <button class="btn btn-outline-primary btn-sm ml-1 shadow-none" type="button">Cancel</button>
+  </div>
+</form> --}}
+
+{{!-- <form class="card-body comment-form" id="comment-form">
+
+  <label class="form-label">Comment</label>
+  <input id="comment" name="comment-body" class="form-input textarea" />
+
+  <button class="btn post-comment-btn" data-id="{{art.id}}">Submit</button>
+</form> --}}

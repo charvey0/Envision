@@ -4,6 +4,15 @@
         "last_name": "Codrean",
         "email": "codreanvictor@gmail.com",
         "password": "$2b$10$RPQDU558UwDgrcoPZdV/xOy0AW6fyn7ofuIAH7aK.ky4jJ1LJDmX2",
-        "role_id": 2
+        "role_id": 2,
+        "profile_picture": ""
+    },
+    {
+        "first_name": "Michael",
+        "last_name": "Jackson",
+        "email": "testing@out.com",
+        "password": "$2b$10$RPQDU558UwDgrcoPZdV/xOy0AW6fyn7ofuIAH7aK.ky4jJ1LJDmX2",
+        "role_id": 1,
+        "profile_picture": "https://workhound.com/wp-content/uploads/2017/05/placeholder-profile-pic.png"
     }
 ]
