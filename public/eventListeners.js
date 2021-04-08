@@ -16,7 +16,7 @@ async function addArtwork(event) {
     formData.append('grade_value', document.querySelector('#grade-value').value.trim());
     formData.append('artwork_link', document.querySelector('#artwork-link').value.trim());
     formData.append('description_artwork', document.querySelector('#description-artwork').value.trim());
-    formData.append('image_link', document.querySelector('#image-link').value.trim());
+    formData.append('repo_link', document.querySelector('#repo-link').value.trim());
     formData.append('file', document.querySelector('#uploadFile').files[0]);
 
     if (!formData) {
@@ -41,7 +41,7 @@ async function addArtwork(event) {
     if (response.ok) {
         console.log('success');
         // Relocate to artworks
-        // document.location.replace('/api/users/artworks');
+        document.location.replace('/api/users/my-artworks');
         // succesSubmited()
     } else {
         alert(response.statusText);

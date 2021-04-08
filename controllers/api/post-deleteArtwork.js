@@ -28,11 +28,19 @@ router.post('/submit', withAuth, async (req, res) => {
     await cloudinary.uploader.upload(filePath, async (err, result) => {
         if (err) {
             res.status(500).json(err)
+            res.render('posArtwork', {
+                msg: err
+            })
         } else {
             console.log(result);
 
         }
-        fileNewUrl = result.url;
+        if (!result.url) {
+            fileNewUrl = 'https://www.nomadfoods.com/wp-content/uploads/2018/08/placeholder-1-e1533569576673.png'
+        } else {
+            fileNewUrl = result.url;
+        }
+
 
 
         try {
@@ -43,7 +51,7 @@ router.post('/submit', withAuth, async (req, res) => {
                 grade_level: req.body.grade_value,
                 description: req.body.description_artwork,
                 links: req.body.artwork_link,
-                image_link: req.body.image_link,
+                repo_link: req.body.repo_link,
                 file_path: fileNewUrl
             });
             console.log(newArtwork);
@@ -51,6 +59,7 @@ router.post('/submit', withAuth, async (req, res) => {
             // res.render('')
         } catch (err) {
             console.log(err);
+
             res.status(500).json(err)
         }
     })

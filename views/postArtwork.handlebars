@@ -1,4 +1,4 @@
-<div class="container mt-5">
+<div class="about container mt-5" style="color: #F0F8FF;">
 
     <form action="/api/post/upload" method="POST" enctype="multipart/form-data" id="add-artwork">
         <div class="row">
@@ -25,6 +25,19 @@
 
             </div>
             <div class="col-lg-6">
+                <label for="basic-url">Repository link</label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Repository</span>
+                    </div>
+                    <input id="repo-link" type="text" class="form-control"
+                        placeholder="https://github.com/user-name/...">
+                </div>
+            </div>
+            <div class="col-lg-6">
+
+            </div>
+            <div class="col-lg-6">
                 <label for="basic-url">Google File Identifier</label>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
@@ -34,24 +47,21 @@
                         placeholder="https://drive.google.com/file/...">
                 </div>
             </div>
-            <div class="col-lg-6">
 
-            </div>
 
-            <div class="col-lg-6">
-                {{!-- <label for="basic-url">Add img/gif link</label> --}}
+            {{!-- <div class="col-lg-6">
+                <label for="basic-url">Repo link</label>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                        {{!-- <span class="input-group-text" id="inputGroup-sizing-default">Img Link</span> --}}
+                        <span class="input-group-text" id="inputGroup-sizing-default">Repository</span>
                     </div>
-                    <input id="image-link" type="hidden" class="form-control"
-                        placeholder="https://drive.google.com/file/...">
+                    <input id="artwork-link" type="text" class="form-control"
+                        placeholder="https://github.com/user-name/...">
                 </div>
-            </div>
+            </div> --}}
             <div class="col-lg-6">
 
             </div>
-
 
             <div class="col-lg-6 input-group mb-3">
                 <div class="input-group-prepend">
@@ -70,7 +80,10 @@
                 {{#if msg}}
                 <label>{{msg}}</label>
                 {{else}}
-                <label class="form-label" for="customFile">Upload the file</label>
+                <label class="form-label" for="customFile">Upload directory location
+                    <br>
+                    <small class="text-muted" style="font-size: 10px;">Files no larger than 10 MB</small>
+                </label>
                 {{/if}}
                 <input type="hidden" id="user_id" value="75" />
                 <input name="myArtwork" type="file" class="form-control" id="uploadFile" />
@@ -90,40 +103,6 @@
                     <span class="w-100 btn btn-danger">Cancel</span>
                 </a>
             </div>
-
-            {{!-- <div class="col-sm-6">
-                <label for="artwork-title" class="form-label">Title</label>
-                <input id="artwork-title" type="text" class="form-control" placeholder="Weather-Dashboard">
-            </div> --}}
-            {{!-- <div class="col-sm-6">
-                {{!-- {{typeof msg != 'undefined' ? msg: ''}} --}}
-                {{!-- {{#if msg}} --}}
-                {{!-- <label>{{msg}}</label> --}}
-                {{!-- {{else}} --}}
-                {{!-- <label class="form-label" for="customFile">Upload the file</label> --}}
-                {{!-- {{/if}} --}}
-                {{!-- <input type="hidden" id="user_id" value="75" /> --}}
-                {{!-- <input name="myArtwork" type="file" class="form-control" id="uploadFile" /> --}}
-                {{!-- </div> --}}
-            {{!-- {{#if msg}}
-            <div class="col-sm-6 mt-3">
-                <p>{{msg}}</p>
-            </div>
-            {{/if}} --}}
-            {{!-- <div class="col-sm-6 mt-3">
-                <label class="form-label mr-2">Grade level</label>
-                <select id="grade-value" class="form-select">
-                    <option selected>Choose...</option>
-                    <option value="9">9-th</option>
-                    <option value="10">10-th</option>
-                    <option value="11">11-th</option>
-                    <option value="12">12-th</option>
-                </select>
-            </div> --}}
-            {{!-- <div class="col-sm-6 mt-3">
-                <button type="submit" id="submitt" class="w-100 btn btn-color">Upload
-                    Artwork</button>
-            </div> --}}
         </div>
     </form>
 </div>

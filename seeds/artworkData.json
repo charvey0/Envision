@@ -1,66 +1,74 @@
 [
     {
         "user_id": 1,
+        "title": "Team Profile Generator",
+        "description": "It's a command-line application that helps us to generate an HTML webpage that takes information about employees on a team...",
+        "grade_level": "10",
+        "links": "1kaTEy3IfVe8ucyI0VAqAYzDtzDrvefXK",
+        "repo_link": "https://github.com/VictorCodrean/Team_Profile_Generator",
+        "file_path": "https://res.cloudinary.com/dz52vqg3p/image/upload/v1617864179/sd0hmiwnb0zohitb1q2j.gif"
+    },
+    {
+        "user_id": 1,
+        "title": "Weather Dashboard",
+        "description": "A weather dashboard that retrieves data from OpenWeather API, (5 day)-Forecast for many locations on Earth",
+        "grade_level": "11",
+        "links": "1Py-kM939BtJXvxcMcoDE-mntAkWtdHY0",
+        "repo_link": "https://github.com/VictorCodrean/API_Weather_Dashboard",
+        "file_path": "http://res.cloudinary.com/dz52vqg3p/image/upload/v1617868763/oz6by5hu0vdyewppeai6.gif"
+    },
+    {
+        "user_id": 1,
+        "title": "Sidebar",
+        "description": "Sidebar acting weird, CSS is an art, I have to give it more time to learn it...",
+        "grade_level": "9",
+        "links": "https://curriculum-content.s3.amazonaws.com/fewds/css-syntax.png",
+        "repo_link": "https://github.com/topics/css",
+        "file_path": "http://res.cloudinary.com/dz52vqg3p/image/upload/v1617849248/g2pa8inczy466lcs5fzx.gif"
+    },
+    {
+        "user_id": 1,
         "title": "Autumn",
         "description": "Autumn is a colorful season, the alley of fallen leafs",
         "grade_level": "9",
-        "links": "",
-        "file_path": "https://wallpaperaccess.com/full/1917994.jpg"
+        "links": "https://wallpaperaccess.com/full/1917994.jpg",
+        "repo_link": "https://github.com/search?q=autumn",
+        "file_path": "https://i.pinimg.com/originals/89/c8/f4/89c8f4712fb66fdbcb323e917e58d2e9.gif"
     },
     {
-        "user_id": 2,
-        "title": "Robes",
-        "description": "Just look at those robes, isn't beautiful",
-        "grade_level": "9",
-        "links": "",
-        "file_path": "https://i.pinimg.com/originals/df/29/8f/df298fa6586e1919f903cb6be2e8c390.jpg"
-    },
-    {
-        "user_id": 2,
-        "title": "Eyes",
-        "description": "They say if you look in the eyes you can not lie, Is that true?",
+        "user_id": 1,
+        "title": "Scaried",
+        "description": "No one knows how you feel, is always good to hear someone asking you: Hey, how's going?!",
         "grade_level": "10",
-        "links": "",
-        "file_path": "https://blog.spoongraphics.co.uk/wp-content/uploads/2017/05/thumbnail-5.jpg"
+        "links": "https://www.topteny.com/wp-content/uploads/2015/02/Edvard-Munch-The-Scream-1895-sbs.jpg",
+        "repo_link": "https://github.com/search?q=scary",
+        "file_path": "https://thumbs.gfycat.com/NeatDecentIaerismetalmark-size_restricted.gif"
     },
     {
-        "user_id": 2,
+        "user_id": 1,
         "title": "Lake sunset",
         "description": "Alone in the nature",
         "grade_level": "11",
-        "links": "",
-        "file_path": "https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(73).jpg"
+        "links": "https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(73).jpg",
+        "repo_link": "https://github.com/search?q=boat",
+        "file_path": "https://s3-eu-west-1.amazonaws.com/video.gallereplay.com/artistarea/Boat+on+Seashore+Against+Dramatic+Orange+Sunset_91b4449b-a613-439d-bf7c-077e72d1c7df/Cinemagraph_watermark/1_small_files/cinemagraph.gif"
     },
     {
-        "user_id": 2,
-        "title": "Mountains",
-        "description": "In the mountains above the clouds.",
-        "grade_level": "10",
-        "links": "",
-        "file_path": "https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain2.jpg"
-    },
-    {
-        "user_id": 2,
+        "user_id": 1,
         "title": "Winter",
         "description": "Lake is getting icy",
         "grade_level": "10",
-        "links": "",
-        "file_path": "https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain1.jpg"
+        "links": "https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain1.jpg",
+        "repo_link": "https://github.com/search?q=winter",
+        "file_path": "https://github.com/search?q=winter"
     },
     {
-        "user_id": 2,
-        "title": "Scaried",
-        "description": "No one knows how you feel",
-        "grade_level": "10",
-        "links": "",
-        "file_path": "https://www.topteny.com/wp-content/uploads/2015/02/Edvard-Munch-The-Scream-1895-sbs.jpg"
-    },
-    {
-        "user_id": 2,
-        "title": "Sidebar",
-        "description": "Sidebar acting weird",
-        "grade_level": "11",
-        "links": "",
-        "file_path": "http://res.cloudinary.com/dz52vqg3p/image/upload/v1617849248/g2pa8inczy466lcs5fzx.gif"
+        "user_id": 1,
+        "title": "Robes",
+        "description": "Just look at those robes, isn't beautiful",
+        "grade_level": "9",
+        "links": "https://i.pinimg.com/originals/df/29/8f/df298fa6586e1919f903cb6be2e8c390.jpg",
+        "repo_link": "https://github.com/search?q=dress",
+        "file_path": "https://media1.giphy.com/media/kVFqUbWprtv3y/source.gif"
     }
 ]

@@ -8,6 +8,17 @@ body {
   overflow: auto;
 }
 
+.about {
+  color: #148cdb;
+  opacity: 0.8;
+}
+
+.envision {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: x-large;
+  font-style: italic;
+}
+
 .sidebar {
   height: 100%;
   width: 160px;
@@ -90,37 +101,42 @@ a:hover {
 }
 
 .card-img-top {
-  max-height: auto;
+  max-height: 500px;
   min-height: auto;
   object-fit: cover;
 }
 
 
-.card-title {
+/* .card-title {
   font-size: 12px;
-}
+} */
 
 .lightbox-gallery .item {
-    padding-bottom: 5px;
+    padding-bottom: 30px;
 }
 
 .text-muted {
   font-size: 8px;
 }
 .card img {
-  
   height: 200px;
   object-fit: cover;
 }
 
 .item img {
-  width: 200px;
-  height: 200px;
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+}
+
+.rounded-circle {
+  max-width: 250px;
   object-fit: cover;
 }
 
 .card {
-  opacity: 0.91;
+  opacity: 0.8;
+  box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 
