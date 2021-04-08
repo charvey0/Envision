@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Artwork, User } = require('../../models');
+const { Artwork, User, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.get('/:id', async (req, res) => {
@@ -9,6 +9,13 @@ router.get('/:id', async (req, res) => {
         {
           model: User,
           attributes: ['first_name', 'last_name'],
+        },
+        {
+          model: Comment,
+          include: {
+            model: User,
+            attributes: ['first_name', 'last_name']
+          }
         }
       ],
     });
@@ -18,23 +25,23 @@ router.get('/:id', async (req, res) => {
     }
     const art = artData.get({ plain: true });
 
-    //       const commentData = await Comment.findAll(
-    //            { 
-    //               where: { 
-    //                   artwork_id: req.params.id,
-    //               },
-    //            },
-    //       );
+          const commentData = await Comment.findAll(
+               { 
+                  where: { 
+                      artwork_id: req.params.id,
+                  },
+               },
+          );
 
-    //       const comments = commentData.map((comment) => comment.get({ plain: true}));
+          const comments = commentData.map((comment) => comment.get({ plain: true}));
 
-    //       comments.array.forEach((comment) => {
-    //         let owner = false;
-    //         if (req.session.user_id == comment.user_id) {
-    //            owner = true;
-    //          }
-    //          comment.owner = owner;  
-    //         }); 
+          comments.array.forEach((comment) => {
+            let owner = false;
+            if (req.session.user_id == comment.user_id) {
+               owner = true;
+             }
+             comment.owner = owner;  
+            }); 
 
     //res.status(200).json(art).render('art', { art: art, comments: comments });
 

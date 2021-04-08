@@ -1,4 +1,108 @@
-<div class="container">
+<div class="container mt-5 " style="opacity: 0.9;">
+  <div class="d-flex justify-content-center row">
+    <div class="col-md-10">
+      <img class="card-img-top mb-5" src="{{art.file_path}}" alt="Card image cap">
+    </div>
+    <div class="col-md-10">
+      <div class="row">
+        <div class="col-md-8 ml-2 mr-2 mr-auto float-left">
+          <div class="d-flex flex-column comment-section" id="myGroup">
+            <div class="bg-top-azure p-2">
+              <div class="d-flex flex-row user-info"><img class="rounded-circle" src="{{art.profile_picture}}"
+                  width="40">
+                <div class="d-flex flex-column justify-content-start ml-2"><span
+                    class="d-block font-weight-bold name">{{art.title}}</span>
+                  <span class="date text-black-50">by: {{art.user.first_name}} {{art.user.last_name}}</span>
+                </div>
+              </div>
+              <div class="mt-2">
+                <p class="comment-text">{{art.description}}</p>
+              </div>
+              <span class="d-block font-weight-bold name"></span>
+              <span class="date text-black-50 float-right">Submited on {{ format_date art.date_created}}
+                <br>
+
+            </div>
+            <div class="bg-bt-hzz p-2">
+              <div class="d-flex flex-row fs-12">
+                {{!-- <div class="like p-2 cursor"><i class="fa fa-thumbs-o-up"></i><span class="ml-1">Like</span></div>
+                --}}
+                <div class="like p-2 cursor action-collapse" data-toggle="collapse" aria-expanded="true"
+                  aria-controls="collapse-1" href="#collapse-1"><i class="far fa-comments"></i><span
+                    class="ml-1">Comment</span>
+                </div>
+                {{!-- <div class="like p-2 cursor action-collapse" data-toggle="collapse" aria-expanded="true"
+                  aria-controls="collapse-2" href="#collapse-2"><i class="fa fa-share"></i><span
+                    class="ml-1">Share</span>
+
+                </div> --}}
+              </div>
+            </div>
+            <div id="collapse-1" class="bg-light p-2 collapse" data-parent="#myGroup">
+              <div class="d-flex flex-row align-items-start"><img class="rounded-circle" src="{{art.profile_picture}}"
+                  width="40"><textarea class="form-control ml-1 shadow-none textarea"></textarea></div>
+              <div class="mt-2 text-right">
+                <button class="btn btn-primary btn-sm shadow-none" type="button">Post
+                  comment</button>
+                <button class="btn btn-outline-primary btn-sm ml-1 shadow-none" type="button">Cancel</button>
+              </div>
+            </div>
+            {{!-- <div id="collapse-2" class="bg-light p-2 collapse" data-parent="#myGroup">
+              <div class="d-flex flex-row align-items-start"><i class="fa fa-facebook border p-3 rounded mr-1"></i><i
+                  class="fa fa-twitter border p-3 rounded mr-1"></i><i
+                  class="fa fa-linkedin border p-3 rounded mr-1"></i><i
+                  class="fa fa-instagram border p-3 rounded mr-1"></i><i
+                  class="fa fa-dribbble border p-3 rounded mr-1"></i>
+                <i class="fa fa-pinterest-p border p-3 rounded mr-1"></i>
+              </div>
+            </div> --}}
+          </div>
+        </div>
+        <div class="col-md-8 mt-3 ml-2 mr-2 bg-white ml-auto float-right">
+          {{!-- {{#each comments as |comment|}} --}}
+          <div class="w3-card" style="margin: 10px 0px 20px 40px;">
+
+            <div class="w3-container">
+              {{!-- <p>{{comment.body}}</p> --}}
+              <span class="font-weight-bold name">First-name Last-name</span class="font-weight-bold name">
+            </div>
+
+            <footer class="w3-white" style="padding-left: 10px;">
+              {{!-- <p>Posted by {{comment.username}} on {{ format_date comment.createdAt}}</p> --}}
+              <p>
+                Some comment will come in here
+              </p>
+              {{!-- {{#if comment.owner }} --}}
+              <div class="w3-bar">
+                {{!-- <a href="/api/comment/edit/{{comment.id}}" class="w3-button w3-black">Edit</a> --}}
+                {{!-- <a href="/api/comment/delete/{{comment.id}}" class="w3-button w3-black">Delete</a> --}}
+              </div>
+              {{!-- {{/if}} --}}
+
+            </footer>
+          </div>
+          {{!-- {{/each}} --}}
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+
+
+
+
+
+{{!-- <div class="container">
   <div class="row m-3">
     <div class="col-sm-7 mr-5">
       <img class="card-img-top p-2" src="{{art.file_path}}" alt="Card image cap">
@@ -10,19 +114,19 @@
         <span class="float-right">Visit repo, <a href="{{art.repo_link}}" target="_blank">here</a></span>
       </div>
       {{!-- {{#if (art.links.length > 35)}} --}}
-      <a href="{{art.links}}" target="_blank">
+      {{!-- <a href="{{art.links}}" target="_blank">
         <img class="card-img-top rounded-circle mx-auto d-block" src="{{art.links}}" alt="Card image cap">
       </a>
       <div class="card-body">
         <h5 class="card-title"><a href="https://drive.google.com/file/d/{{art.links}}" target="_blank">{{art.title}}</a>
         </h5>
-        <p class="card-text">{{art.description}}</p>
+        <p class="card-text">{{art.description}}</p> --}}
         {{!-- <a href="https://drive.google.com/file/d/{{art.links}}/view?usp=sharing" target="_blank"
           class="btn btn-primary">View
           Artwork</a> --}}
         {{!-- <a href="{{art.links}}" target="_blank" class="btn btn-primary">View
           Artwork</a> --}}
-
+        {{!--
       </div>
       <div class="card-footer">
         <small class="text-muted" style="font-size: 10px;">Submited by: {{art.user.first_name}} {{art.user.last_name}}
@@ -37,4 +141,4 @@
 
 
   </div>
-</div>
+</div> --}}

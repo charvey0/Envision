@@ -1,6 +1,35 @@
 body {
   background-color: #e7e7e7;
 }
+.cursor:hover {
+    color: blue
+}
+
+.cursor {
+    cursor: pointer
+}
+
+.bg-white {
+  background-color: white;
+  border-radius: 0.5rem;
+}
+
+.bg-top-azure {
+  background-color: azure;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+.bg-bt-hzz {
+   background-color: aliceblue;
+  /* border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem; */
+}
+
+.bg-light {
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
 
 .main {
   margin-left: 160px; /* Same as the width of the sidenav */
