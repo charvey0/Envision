@@ -76,7 +76,7 @@ router.get('/artworks/:id', async (req, res) => {
   }
 })
 
-router.post('/', async (req, res) => {
+router.post('/sign-up', async (req, res) => {
   // console.log(req.body);
   try {
     const newUser = await User.create({
@@ -95,6 +95,7 @@ router.post('/', async (req, res) => {
     res.status(200).json(newUser);
   } catch (err) {
     console.log(err);
+    console.log(err.message);
     res.status(500).json(err);
   }
 });
@@ -124,17 +125,17 @@ router.post('/login', async (req, res) => {
     }
 
     req.session.save(() => {
+      req.session.loggedIn = true;
       req.session.user_id = userDB.id;
       req.session.email = userDB.email;
       req.session.first_name = userDB.first_name;
       req.session.last_name = userDB.last_name;
       req.session.role_id = userDB.role_id;
-      req.session.loggedIn = true;
+
       // console.log('userDB', userDB);
-      res
-        .status(200)
-        .json({ user: userDB.dataValues, message: 'You are now logged in!' });
+      res.status(200).json({ user: userDB.dataValues, message: 'You are now logged in!' });
     });
+    // res.status(200).json({ user: userDB.dataValues, message: 'You are now logged in!' });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);

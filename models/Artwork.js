@@ -39,7 +39,7 @@ Artwork.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    image_link: {
+    repo_link: {
       type: DataTypes.STRING,
       allowNull: true,
     },

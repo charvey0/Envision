@@ -32,7 +32,7 @@
   <div class="sidebar">
     {{#if loggedIn}}
     <header>
-      <a class="hehe" href="/api/users/my-artworks">{{first_name}} {{last_name}}</a>
+      <a class="hehe" href="/home-gallery">{{first_name}} {{last_name}}</a>
     </header>
     <ul>
       <li>
@@ -52,17 +52,19 @@
     <nav class="navbar">
       <div class="ml-1 navbar-brand">
         <img src="/assets/pictures/favicon.ico" width="35" height="35" class="d-inline-block mr-1 mb-3" alt="Envision">
+
         <a href="/">
-          <h1 class="d-inline-block mb-0" style="color: black;">Envision</h1>
+          <h1 class="d-inline-block mb-0 about">Envision</h1>
         </a>
+
       </div>
       <div class="navbar-brand">
         <div class="navbar-brand">
           {{#if loggedIn}}
-          <button id="logout" type="button" class="btn btn-light text-dark me-2">LogOut</button>
+          <button id="logout" type="button" class="btn btn-light text-dark me-2 about">LogOut</button>
           {{else}}
           <a href="/login">
-            <button type="button" class="btn btn-light text-dark me-2">LogIn</button>
+            <button type="button" class="btn btn-light text-dark me-2 about">LogIn</button>
           </a>
           <a href="signup">
             <button type="button" class="btn btn-color">Sign-up</button>

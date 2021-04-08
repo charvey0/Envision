@@ -8,7 +8,7 @@ async function signupFormHandler(event) {
   const role = document.querySelector('#role-select').value.trim();
 
   if (email && password) {
-    const response = await fetch('/api/users', {
+    const response = await fetch('/api/users/sign-up', {
       method: 'POST',
       body: JSON.stringify({
         firstName,
@@ -24,10 +24,15 @@ async function signupFormHandler(event) {
 
       document.location.replace('/login');
     } else {
-      alert(response.statusText);
+      // if (response.message === 'Validation isEmail on email failed') {
+      //   alert('Email not valid')
+      // } else {
+
+      // }
+      console.log(response);
     }
   }
-  console.log(firstName, lastName, email, role);
+  // console.log(firstName, lastName, email, role);
 }
 
 document

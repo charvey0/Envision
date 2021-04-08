@@ -11,14 +11,14 @@
         {{else}} --}}
         {{!-- <img class="card-img-top p-2" src="https://drive.google.com/thumbnail?id={{artwork.links}}" }}
             alt="Card image cap"> --}}
-        <img class="card-img-top img-thumbnail p-2" src="{{artwork.file_path}}" }} alt="Card image cap">
+        <img class="card-img-top img-thumbnail p-3" src="{{artwork.file_path}}" }} alt="Card image cap">
         {{!-- {{/if}} --}}
         <div class="card-body">
 
 
-            <h5 class="card-title"><a href="/api/artwork/{{artwork.id}}" target="_blank">{{artwork.title}}</a></h5>
-            <a href="/api/artwork/{{artwork.id}}" target="_blank" class="btn btn-primary">More Info</a>
-            <button class="btn btn-sm btn-danger delete-artwork-btn" data-id="{{artwork.id}}">DELETE</button>
+            <h4 class="card-title"><a href="/api/artwork/{{artwork.id}}">{{artwork.title}}</a></h4>
+            <a href="/api/artwork/{{artwork.id}}" class="btn btn-sm btn-primary mt-3">More Info</a>
+            <button class="btn btn-sm btn-danger delete-artwork-btn mt-3" data-id="{{artwork.id}}">DELETE</button>
         </div>
         <div class="card-footer">
             <small class="text-muted">Submited: {{ format_date artwork.date_created}}</small>
@@ -26,7 +26,16 @@
     </div>
     {{/each}}
     {{else}}
-    <h3 class="mt-5 bg-info text-white">No artworks submited</h3>
+
+    <div class="jumbotron about m-5">
+
+        <h2 class="text-center"> Gallery</h2>
+        <p class="text-center">You don't have any artworks, <a href="/api/post-artwork"><i
+                    class="fas fa-plus-circle ml-2 mr-2"></i><span>add an artwork</span></a></p>
+
+
+    </div>
+
     {{/if}}
 </div>
 <script src="../../delete-artwork.js"></script>

@@ -15,7 +15,7 @@ const loginFormHandler = async (event) => {
     // console.log('login res: ', await response.json());
     if (response.ok) {
       // If successful, redirect the browser to the home page
-      document.location.replace('/api/users/my-artworks');
+      document.location.replace('/');
     } else {
       alert(response.statusText);
     }

@@ -1,12 +1,5 @@
 [
     {
-        "first_name": "test",
-        "last_name": "testeson",
-        "email": "test@testeson.com",
-        "password": "$2b$10$UwjD66PrVcDH1EuiXbpx6.WGJHyHYHuJNiXmvjqb1h1nHmsRwfco2",
-        "role_id": 1
-    },
-    {
         "first_name": "Victor",
         "last_name": "Codrean",
         "email": "codreanvictor@gmail.com",
