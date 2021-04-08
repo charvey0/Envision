@@ -1,9 +1,39 @@
 {{#if loggedIn}}
-<div>
-  {{!-- profile or something --}}
+
+{{#if artworks.length}}
+
+{{!-- {{artwork.file_path}} --}}
+
+<!-- Gallery -->
+<div class="lightbox-gallery">
+  <div class="container">
+    <div class="intro">
+      <h2 class="text-center"> Gallery</h2>
+      <p class="text-center">Find the gallery for your artworks.</p>
+    </div>
+    <div class="row photos">
+      {{#each artworks as |artwork|}}
+      <div class="col-sm-6 col-md-4 col-lg-3 item">
+        {{!-- <a href="https://i.imgur.com/zmzERpe.jpg" data-lightbox="photos"> --}}
+          <img class="img-fluid" src="{{artwork.file_path}}">
+          {{!-- <img class="img-fluid" src="{{artwork.image_link}}"> --}}
+          {{!-- </a> --}}
+      </div>
+      {{/each}}
+    </div>
+  </div>
 </div>
+<!-- Gallery -->
+
+{{else}}
+<h1>In progress</h1>
+{{/if}}
+
+
 {{else}}
 <div class="row d-flex justify-content-center">
+
+
   <div class="jumbotron col-10 mt-3">
     <h1 class="display-4">About us:</h1>
     <p class="lead">Envision is a place where students and teachers can come together to interact through artwork! If

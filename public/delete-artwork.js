@@ -29,12 +29,12 @@ const delButtonHandler = async (event) => {
     const id = event.target.getAttribute('data-id');
     console.log('hello');
     console.log(id);
-    const response = await fetch(`/api/post/${id}`, {
+    const response = await fetch(`/api/post-artwork/${id}`, {
       method: 'DELETE',
     });
 
     if (response.ok) {
-      document.location.replace('/api/users/artworks');
+      document.location.replace('/api/users/my-artworks');
     } else {
       alert('Failed to delete project');
     }

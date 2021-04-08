@@ -1,34 +1,58 @@
 [
     {
         "user_id": 1,
-        "title": "whatever",
-        "description": "whatever2",
+        "title": "Autumn",
+        "description": "Autumn is a colorful season, the alley of fallen leafs",
         "grade_level": "9",
-        "links": "sample.com",
-        "file_path": "hz"
+        "links": "",
+        "file_path": "https://wallpaperaccess.com/full/1917994.jpg"
     },
     {
         "user_id": 2,
-        "title": "Node fetch",
-        "description": "Presentation on how to fetch with node.js in less then 15 minutes, really helpful.",
+        "title": "Robes",
+        "description": "Just look at those robes, isn't beautiful",
         "grade_level": "9",
-        "links": "https://www.youtube.com/watch?v=iFUEQtQQQjM",
-        "file_path": ""
+        "links": "",
+        "file_path": "https://i.pinimg.com/originals/df/29/8f/df298fa6586e1919f903cb6be2e8c390.jpg"
     },
     {
         "user_id": 2,
-        "title": "Node.js Tutorial",
-        "description": "Node.js Tutorial for Beginners: Learn Node in 1 Hour",
+        "title": "Eyes",
+        "description": "They say if you look in the eyes you can not lie, Is that true?",
         "grade_level": "10",
-        "links": "https://www.youtube.com/watch?v=TlB_eWDSMt4",
-        "file_path": ""
+        "links": "",
+        "file_path": "https://blog.spoongraphics.co.uk/wp-content/uploads/2017/05/thumbnail-5.jpg"
     },
     {
         "user_id": 2,
-        "title": "JavaScript Tutorial",
-        "description": "Watch this JavaScript tutorial for beginners to learn JavaScript basics in one hour.",
+        "title": "Lake sunset",
+        "description": "Alone in the nature",
         "grade_level": "11",
-        "links": "https://www.youtube.com/watch?v=W6NZfCO5SIk",
-        "file_path": ""
+        "links": "",
+        "file_path": "https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(73).jpg"
+    },
+    {
+        "user_id": 2,
+        "title": "Mountains",
+        "description": "In the mountains above the clouds.",
+        "grade_level": "10",
+        "links": "",
+        "file_path": "https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain2.jpg"
+    },
+    {
+        "user_id": 2,
+        "title": "Winter",
+        "description": "Lake is getting icy",
+        "grade_level": "10",
+        "links": "",
+        "file_path": "https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain1.jpg"
+    },
+    {
+        "user_id": 2,
+        "title": "Scaried",
+        "description": "No one knows how you feel",
+        "grade_level": "10",
+        "links": "",
+        "file_path": "https://www.topteny.com/wp-content/uploads/2015/02/Edvard-Munch-The-Scream-1895-sbs.jpg"
     }
 ]

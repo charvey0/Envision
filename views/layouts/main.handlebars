@@ -32,24 +32,24 @@
   <div class="sidebar">
     {{#if loggedIn}}
     <header>
-      <a href="/api/users/artworks">{{first_name}} {{last_name}}</a>
+      <a class="hehe" href="/api/users/my-artworks">{{first_name}} {{last_name}}</a>
     </header>
     <ul>
       <li>
-        <a href="/api/post">
+        <a href="/api/post-artwork">
           <i class="fas fa-plus-circle mr-2"></i>
           Add artwork
         </a>
       </li>
-      <li><a href="/api/users/artworks">My Artworks</a></li>
-      <li><a href="/api/users/allartworks">All Artworks</a></li>
+      <li><a href="/api/users/my-artworks">My Artworks</a></li>
+      <li><a href="/api/users/all-artworks">All Artworks</a></li>
     </ul>
     {{/if}}
   </div>
 
 
-  <div class="main">
-    <nav class="navbar" style="background-color: gray;">
+  <div class="main lightbox-gallery">
+    <nav class="navbar">
       <div class="ml-1 navbar-brand">
         <img src="/assets/pictures/favicon.ico" width="35" height="35" class="d-inline-block mr-1 mb-3" alt="Envision">
         <a href="/">

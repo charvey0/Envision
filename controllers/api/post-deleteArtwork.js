@@ -2,16 +2,53 @@ const router = require('express').Router();
 // const fileUpload = require('express-fileupload');
 const withAuth = require('../../utils/auth')
 const { User, Artwork } = require('../../models');
+var cloudinary = require('cloudinary').v2;
+
+cloudinary.config({
+    cloud_name: 'dz52vqg3p',
+    api_key: '412443397181723',
+    api_secret: 'q-mf7e4S7u-oJqmK9BeXOqne7oU',
+})
+
 
 router.get('/', (req, res) => {
     res.render('postArtwork', {
-        loggedIn: req.session.loggedIn
+        loggedIn: req.session.loggedIn,
+        first_name: req.session.first_name,
+        last_name: req.session.last_name,
     })
 })
 
 router.post('/submit', withAuth, async (req, res) => {
-    console.log(req);
+    // console.log(req.files.path);
+    const filePath = req.body.file.path;
+    console.log(filePath);
+    // console.log(req.files);
+    // var fileNewUrl;
+    // cloudinary.uploader.upload(filePath, function (err, result) {
+    //     if (err) {
+    //         res.status(500).json(err)
+    //     } else {
+    //         console.log(result);
+
+    //     }
+    //     fileNewUrl = result.url;
+    // })
+
+
     try {
+
+        await cloudinary.uploader.upload(filePath, function (err, result) {
+
+            if (err) {
+                res.status(500).json(err)
+            } else {
+                console.log(result);
+                res.status(200).json(fileNewUrl);
+
+            }
+            fileNewUrl = result.url;
+        })
         const newArtwork = await Artwork.create({
             user_id: req.session.user_id,
             title: req.body.artwork_title,
@@ -19,6 +56,7 @@ router.post('/submit', withAuth, async (req, res) => {
             description: req.body.description_artwork,
             links: req.body.artwork_link,
             image_link: req.body.image_link,
+            file_path: fileNewUrl
         });
         console.log(newArtwork);
         res.status(200).json(newArtwork);
@@ -31,6 +69,7 @@ router.post('/submit', withAuth, async (req, res) => {
 
 
 router.delete('/:id', withAuth, async (req, res) => {
+    console.log("delete started");
     try {
         const artworkData = await Artwork.destroy({
             where: {
@@ -39,6 +78,7 @@ router.delete('/:id', withAuth, async (req, res) => {
             },
         });
 
+        console.log(artworkData);
         if (!artworkData) {
             res.status(404).json({ message: 'No artwork found with this id!' });
             return;
