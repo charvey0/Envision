@@ -21,10 +21,12 @@ body {
   background: #042331;
 }
 
-
-.sidebar header, .hehe {
-  font-size: 22px;
-  color:  #209cee;
+.main {
+  margin-left: 160px; /* Same as the width of the sidenav */
+}
+.sidebar header {
+  font-size: 20px;
+  color: white;
   line-height: 70px;
   text-align: center;
   background: #063146;
@@ -33,7 +35,7 @@ body {
 
 .sidebar ul a,
 .add-btn {
-    display: block;
+   display: block;
   height: 100%;
   width: 100%;
   line-height: 65px;
@@ -87,29 +89,15 @@ a:hover {
     color: black;
 }
 
-.lightbox-gallery h2 {
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-style: italic;
-    font-weight: bold;
-    margin-bottom: 40px;
-    padding-top: 40px;
-    color: #209cee
+.card-img-top {
+  max-height: auto;
+  min-height: auto;
+  object-fit: cover;
 }
 
-.lightbox-gallery .intro {
-    font-size: 16px;
-    max-width: 500px;
-    margin: 0 auto 40px
-}
 
-.lightbox-gallery .intro p {
-    margin-bottom: 0;
-    color: #148cdb;
-    
-}
-
-.lightbox-gallery .photos {
-    padding-bottom: 20px;
+.card-title {
+  font-size: 12px;
 }
 
 .lightbox-gallery .item {
