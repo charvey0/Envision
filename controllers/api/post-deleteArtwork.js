@@ -24,47 +24,39 @@ router.post('/submit', withAuth, async (req, res) => {
     const filePath = req.body.file.path;
     console.log(filePath);
     // console.log(req.files);
-    // var fileNewUrl;
-    // cloudinary.uploader.upload(filePath, function (err, result) {
-    //     if (err) {
-    //         res.status(500).json(err)
-    //     } else {
-    //         console.log(result);
+    var fileNewUrl;
+    await cloudinary.uploader.upload(filePath, async (err, result) => {
+        if (err) {
+            res.status(500).json(err)
+        } else {
+            console.log(result);
 
-    //     }
-    //     fileNewUrl = result.url;
-    // })
+        }
+        fileNewUrl = result.url;
 
 
-    try {
+        try {
 
-        await cloudinary.uploader.upload(filePath, function (err, result) {
+            const newArtwork = await Artwork.create({
+                user_id: req.session.user_id,
+                title: req.body.artwork_title,
+                grade_level: req.body.grade_value,
+                description: req.body.description_artwork,
+                links: req.body.artwork_link,
+                image_link: req.body.image_link,
+                file_path: fileNewUrl
+            });
+            console.log(newArtwork);
+            res.status(200).json(newArtwork);
+            // res.render('')
+        } catch (err) {
+            console.log(err);
+            res.status(500).json(err)
+        }
+    })
 
-            if (err) {
-                res.status(500).json(err)
-            } else {
-                console.log(result);
-                res.status(200).json(fileNewUrl);
 
-            }
-            fileNewUrl = result.url;
-        })
-        const newArtwork = await Artwork.create({
-            user_id: req.session.user_id,
-            title: req.body.artwork_title,
-            grade_level: req.body.grade_value,
-            description: req.body.description_artwork,
-            links: req.body.artwork_link,
-            image_link: req.body.image_link,
-            file_path: fileNewUrl
-        });
-        console.log(newArtwork);
-        res.status(200).json(newArtwork);
-        // res.render('')
-    } catch (err) {
-        console.log(err);
-        res.status(500).json(err)
-    }
+
 })
 
 
