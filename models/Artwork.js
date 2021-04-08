@@ -39,6 +39,10 @@ Artwork.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    image_link: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
     file_path: {
       type: DataTypes.STRING,
       allowNull: true,

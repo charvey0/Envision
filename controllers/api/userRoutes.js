@@ -1,9 +1,83 @@
 const router = require('express').Router();
-const { User } = require('../../models');
-// const withAuth = require('../../utils/auth');
+const { User, Artwork } = require('../../models');
+const withAuth = require('../../utils/auth');
+
+router.get('/my-artworks', withAuth, async (req, res) => {
+  try {
+    // Find the logged in user based on the session ID
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ['password'] },
+      include: [{ model: Artwork }],
+    });
+
+    const user = userData.get({ plain: true });
+
+    res.render('artworks', {
+      ...user,
+      loggedIn: req.session.loggedIn
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/all-artworks', withAuth, async (req, res) => {
+  try {
+    // Find the logged in user based on the session ID
+    const artworkData = await Artwork.findAll({
+      attributes: { exclude: ['password'] },
+      include: [
+        {
+          model: User,
+          attributes: { exclude: ['password'] },
+        }
+      ],
+    });
+
+    // Serialize data so the template can read it
+    const artworks = artworkData.map((artwork) => artwork.get({ plain: true }));
+
+    console.log(artworks);
+
+    res.render('allArtworks', {
+      artworks,
+      loggedIn: req.session.loggedIn,
+      first_name: req.session.first_name,
+      last_name: req.session.last_name,
+
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/artworks/:id', async (req, res) => {
+  try {
+    const artworkData = await Artwork.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ['first_name'],
+        }
+      ],
+    });
+
+    const artwork = artworkData.get({ plain: true });
+    console.log(artworkData);
+    res.render('artworks', {
+      ...artwork,
+      loggedIn: req.session.loggedIn,
+      first_name: req.session.first_name,
+      last_name: req.session.last_name
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+})
 
 router.post('/', async (req, res) => {
-  console.log(req.body);
+  // console.log(req.body);
   try {
     const newUser = await User.create({
       email: req.body.email,
@@ -12,7 +86,7 @@ router.post('/', async (req, res) => {
       last_name: req.body.lastName,
       role_id: +req.body.role,
     });
-    console.log(newUser);
+    // console.log(newUser);
     req.session.save(() => {
       req.session.user_id = newUser.id;
       req.session.email = newUser.email;
@@ -42,8 +116,8 @@ router.post('/login', async (req, res) => {
     }
 
     const validPassword = await userDB.checkPassword(req.body.password);
-    // console.log(`password: ${validPassword}`);
-    // console.log('validPassword: ', validPassword);
+    console.log(`password: ${validPassword}`);
+    console.log('validPassword: ', validPassword);
     if (!validPassword) {
       res.status(400).json({ message: 'Email or password is incorrect' });
       return;

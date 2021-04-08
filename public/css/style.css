@@ -6,19 +6,41 @@ body {
   background-color: #209cee;
 }
 
+.btn-color:hover {
+ background-color: #148cdb;
+}
+
+a:hover {
+ text-decoration: none;
+}
+
 .sidebar {
-  position: sticky;
-  left: 0px;
-  /* width: 250px; */
-  height: 500px;
+  height: 100%;
+  width: 160px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  /* background-color: #209cee; */
+  overflow-x: hidden;
+  padding-top: 20px;
   background: #042331;
 }
-.container {
-  padding: 0;
+
+.main {
+  margin-left: 160px; /* Same as the width of the sidenav */
 }
+<<<<<<< HEAD
 .sidebar header {
   font-size: 20px;
   color: white;
+=======
+
+
+.sidebar header, .hehe {
+  font-size: 22px;
+  color:  #209cee;
+>>>>>>> main
   line-height: 70px;
   text-align: justify;
   padding-left: 76px;
@@ -31,20 +53,27 @@ body {
   display: block;
   height: 100%;
   width: 100%;
+<<<<<<< HEAD
   line-height: 70px;
   font-size: 20px;
   color: white;
   padding-left: 35px;
+=======
+  line-height: 65px;
+  font-size: 12px;
+  color: white;
+  padding-left: 2px;
+>>>>>>> main
   border-bottom: 1px solid black;
   text-align: justify;
 }
 
 ul li:hover a {
-  padding-left: 50px;
+  padding-left: 10px;
 }
 
 .add-btn {
-  padding: 0px 0px 0px 5px !important;
+  padding: 0px 0px 0px 1px !important;
 }
 
 .add-btn:hover {
@@ -52,31 +81,26 @@ ul li:hover a {
   color: white;
 }
 
-/* .add-btn:hover {
-    color: white;
-} */
-/* .btn-dark-blue {
+.add-btn:hover {
     color: white;
 } */
 
-.about {
-  font-size: 12px;
-  text-align: center;
+.text-muted {
+  font-size: 8px;
 }
 
-h3 {
-  padding-top: 2rem;
-  font-size: 15px;
+.lightbox-gallery {
+    background-image: linear-gradient(#063146, #E53935);
+    background-repeat: no-repeat;
+    color: #000;
+    overflow-x: hidden
 }
 
-.card {
-  padding-left: 2rem;
-  padding-bottom: 1rem;
-  padding-top: 15px;
-  margin-top: 10px;
-  padding-right: 30px;
+.lightbox-gallery p {
+    color: #fff
 }
 
+<<<<<<< HEAD
 .card-img-top {
   max-height: auto;
   min-height: auto;
@@ -86,10 +110,56 @@ h3 {
 
 .card-title {
   font-size: 12px;
+=======
+.lightbox-gallery h2 {
+    font-weight: bold;
+    margin-bottom: 40px;
+    padding-top: 40px;
+    color: #fff
 }
 
-.card-text {
-  font-size: 10px;
+@media (max-width:767px) {
+    .lightbox-gallery h2 {
+        margin-bottom: 25px;
+        padding-top: 25px;
+        font-size: 24px
+    }
 }
 
+.lightbox-gallery .intro {
+    font-size: 16px;
+    max-width: 500px;
+    margin: 0 auto 40px
+}
 
+.lightbox-gallery .intro p {
+    margin-bottom: 0
+}
+
+.lightbox-gallery .photos {
+    padding-bottom: 20px
+>>>>>>> main
+}
+
+.lightbox-gallery .item {
+    padding-bottom: 30px
+}
+
+<<<<<<< HEAD
+
+=======
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
+
+@media screen and (max-width: 522px) {
+  .sidebar {
+    /* display: none; */
+    padding-top: 15px;
+    width: 120px;
+}
+  .sidebar a {font-size: 18px;}
+  .main {margin-left: 120px;}
+}
+>>>>>>> main

@@ -1,9 +1,16 @@
 [
     {
-        "first_name": "Sample",
-        "last_name": "Sampleson",
-        "email": "sample@email.com",
-        "password": "12345678",
+        "first_name": "test",
+        "last_name": "testeson",
+        "email": "test@testeson.com",
+        "password": "$2b$10$UwjD66PrVcDH1EuiXbpx6.WGJHyHYHuJNiXmvjqb1h1nHmsRwfco2",
         "role_id": 1
+    },
+    {
+        "first_name": "Victor",
+        "last_name": "Codrean",
+        "email": "codreanvictor@gmail.com",
+        "password": "$2b$10$RPQDU558UwDgrcoPZdV/xOy0AW6fyn7ofuIAH7aK.ky4jJ1LJDmX2",
+        "role_id": 2
     }
 ]

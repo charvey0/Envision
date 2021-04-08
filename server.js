@@ -4,6 +4,19 @@ const session = require("express-session");
 const routes = require('./controllers');
 const exphbs = require('express-handlebars');
 const helpers = require('./utils/helpers');
+const cloudinary = require('cloudinary').v2;
+
+
+
+const formData = require("express-form-data");
+const os = require("os");
+
+const options = {
+  uploadDir: os.tmpdir(),
+  autoClean: true
+};
+
+
 
 // const multer = require('multer');
 
@@ -27,6 +40,15 @@ const SequelizeStore = require("connect-session-sequelize")(session.Store);
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+
+// parse data with connect-multiparty. 
+app.use(formData.parse(options));
+// delete from the request all empty files (size == 0)
+app.use(formData.format());
+// change the file objects to fs.ReadStream 
+app.use(formData.stream());
+// union the body and the files
+app.use(formData.union());
 
 const hbs = exphbs.create({ helpers });
 // const hbs = exphbs.create({});
@@ -74,3 +96,10 @@ sequelize.sync({ force: false }).then(() => {
 });
 
 // app.listen(PORT, () => console.log('Now listening'));
+
+
+// DB_NAME = envision_db
+// DB_PASSWORD = password
+// DB_USER = root
+// SESSION_SECRET = super_secret_session
+
