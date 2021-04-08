@@ -2,18 +2,6 @@ body {
   background-color: #e7e7e7;
 }
 
-.btn-color {
-  background-color: #209cee;
-}
-
-.btn-color:hover {
- background-color: #148cdb;
-}
-
-a:hover {
- text-decoration: none;
-}
-
 .sidebar {
   height: 100%;
   width: 160px;
@@ -27,20 +15,10 @@ a:hover {
   background: #042331;
 }
 
-.main {
-  margin-left: 160px; /* Same as the width of the sidenav */
-}
-<<<<<<< HEAD
-.sidebar header {
-  font-size: 20px;
-  color: white;
-=======
-
 
 .sidebar header, .hehe {
   font-size: 22px;
   color:  #209cee;
->>>>>>> main
   line-height: 70px;
   text-align: justify;
   padding-left: 76px;
@@ -53,17 +31,10 @@ a:hover {
   display: block;
   height: 100%;
   width: 100%;
-<<<<<<< HEAD
-  line-height: 70px;
-  font-size: 20px;
-  color: white;
-  padding-left: 35px;
-=======
   line-height: 65px;
   font-size: 12px;
   color: white;
   padding-left: 2px;
->>>>>>> main
   border-bottom: 1px solid black;
   text-align: justify;
 }
@@ -85,45 +56,44 @@ ul li:hover a {
     color: white;
 } */
 
-.text-muted {
-  font-size: 8px;
+
+.btn-color {
+  background-color: #209cee;
+}
+
+.btn-color:hover {
+ background-color: #148cdb;
+}
+
+a:hover {
+ text-decoration: none;
+}
+
+.main {
+  margin-left: 160px; /* Same as the width of the sidenav */
+   height: 100vh;
+    overflow: auto;
 }
 
 .lightbox-gallery {
-    background-image: linear-gradient(#063146, #E53935);
+    background-image: linear-gradient(#063146, #af2465);
     background-repeat: no-repeat;
     color: #000;
-    overflow-x: hidden
+    overflow-x: hidden;
+   
 }
 
 .lightbox-gallery p {
-    color: #fff
+    color: black;
 }
 
-<<<<<<< HEAD
-.card-img-top {
-  max-height: auto;
-  min-height: auto;
-  object-fit: cover;
-}
-
-
-.card-title {
-  font-size: 12px;
-=======
 .lightbox-gallery h2 {
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-style: italic;
     font-weight: bold;
     margin-bottom: 40px;
     padding-top: 40px;
-    color: #fff
-}
-
-@media (max-width:767px) {
-    .lightbox-gallery h2 {
-        margin-bottom: 25px;
-        padding-top: 25px;
-        font-size: 24px
-    }
+    color: #209cee
 }
 
 .lightbox-gallery .intro {
@@ -133,21 +103,50 @@ ul li:hover a {
 }
 
 .lightbox-gallery .intro p {
-    margin-bottom: 0
+    margin-bottom: 0;
+    color: #148cdb;
+    
 }
 
 .lightbox-gallery .photos {
-    padding-bottom: 20px
->>>>>>> main
+    padding-bottom: 20px;
 }
 
 .lightbox-gallery .item {
-    padding-bottom: 30px
+    padding-bottom: 5px;
 }
 
-<<<<<<< HEAD
+.text-muted {
+  font-size: 8px;
+}
+.card img {
+  
+  height: 200px;
+  object-fit: cover;
+}
 
-=======
+.item img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card {
+  opacity: 0.91;
+}
+
+
+@media (max-width:767px) {
+    .lightbox-gallery h2 {
+        margin-bottom: 25px;
+        padding-top: 25px;
+        font-size: 24px
+    }
+}
+
+
+
+
 @media screen and (max-height: 450px) {
   .sidebar {padding-top: 15px;}
   .sidebar a {font-size: 18px;}
@@ -162,4 +161,4 @@ ul li:hover a {
   .sidebar a {font-size: 18px;}
   .main {margin-left: 120px;}
 }
->>>>>>> main
+
