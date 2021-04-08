@@ -36,14 +36,17 @@ router.get('/home-gallery', async (req, res) => {
 
 router.get('/login', (req, res) => {
   if (req.session.loggedIn) {
-    res.redirect('/api/users/artworks');
+    res.redirect('/');
     return;
   }
   res.render('login', { loginOrSignupPage: true });
 });
 
 router.get('/signup', (req, res) => {
-  res.render('signup', { loginOrSignupPage: true });
+  res.render('signup', {
+    loginOrSignupPage: true,
+    
+   });
 });
 
 module.exports = router;

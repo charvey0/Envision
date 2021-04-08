@@ -9,12 +9,13 @@
         <br>
         <span class="float-right">Visit repo, <a href="{{art.repo_link}}" target="_blank">here</a></span>
       </div>
-      <a href="https://drive.google.com/file/d/{{art.links}}/view?usp=sharing" target="_blank">
-        <img class="card-img-top rounded-circle mx-auto d-block"
-          src="https://drive.google.com/thumbnail?id={{art.links}}" alt="Card image cap">
+      {{!-- {{#if (art.links.length > 35)}} --}}
+      <a href="{{art.links}}" target="_blank">
+        <img class="card-img-top rounded-circle mx-auto d-block" src="{{art.links}}" alt="Card image cap">
       </a>
       <div class="card-body">
-        <h5 class="card-title"><a href="{{art.links}}" target="_blank">{{art.title}}</a></h5>
+        <h5 class="card-title"><a href="https://drive.google.com/file/d/{{art.links}}" target="_blank">{{art.title}}</a>
+        </h5>
         <p class="card-text">{{art.description}}</p>
         {{!-- <a href="https://drive.google.com/file/d/{{art.links}}/view?usp=sharing" target="_blank"
           class="btn btn-primary">View
