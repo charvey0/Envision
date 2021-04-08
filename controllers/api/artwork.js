@@ -61,63 +61,89 @@ router.get('/:id', async (req, res) => {
   };
 });
 
-router.post('/', withAuth, async (req, res) => {
-  if (req.session) {
-    Comment.create({
-      comment_text: req.body.comment_text,
-      artwork_id: req.body.artwork_id,
-      user_id: req.session.user_id,
-    })
-      .then((dbCommentData) => res.json(dbCommentData))
-      .catch((err) => {
-        console.log(err);
-        res.status(400).json(err);
-      });
-  }
+router.post('/post/comment/:id', async (req, res) => {
+  console.log(req.body);
+  // try {
+  //   // const commenter_id = req.session.user.id;
+  //   // const userData = await User.findByPk(commenter_id);
+  //   // const commenter_user = userData.get({ plain: true });
+
+  //   // const username = commenter_user.username;
+
+  //   const commentData = await Comment.create({
+  //     artwork_id: req.body.artwork_id,
+  //     comment_text: req.body.comment_text,
+  //     user_id: req.session.user_id,
+  //   });
+  //   const comment = commentData.get({ plain: true });
+  //   // const redir = '/api/artwork/' + comment.artwork_id;
+  //   console.log(comment);
+
+  //   // res.status(200).redirect(redir);
+  // } catch (err) {
+  //   console.log(err);
+  //   res.status(400).json(err);
+  // }
 });
 
-router.put('/:id', withAuth, (req, res) => {
-  Comment.update(
-    {
-      comment_text: req.body.comment_text,
-    },
-    {
-      where: {
-        id: req.params.id,
-      },
-    }
-  )
-    .then((dbCommentData) => {
-      if (!dbCommentData) {
-        res.status(404).json({ message: 'No comment found with this id' });
-        return;
-      }
-      res.json(dbCommentData);
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json(err);
-    });
-});
+// router.post('/post', withAuth, async (req, res) => {
+//   console.log(req.body);
+//   if (req.session) {
+//     Comment.create({
+//       comment_text: req.body.comment_text,
+//       artwork_id: req.body.artwork_id,
+//       user_id: req.session.user_id,
+//     })
+//       .then((dbCommentData) => res.json(dbCommentData))
+//       .catch((err) => {
+//         console.log(err);
+//         res.status(400).json(err);
+//       });
+//   }
+// });
 
-router.delete('/:id', withAuth, (req, res) => {
-  Comment.destroy({
-    where: {
-      id: req.params.id,
-    },
-  })
-    .then((dbCommentData) => {
-      if (!dbCommentData) {
-        res.status(404).json({ message: 'No comment found with this id' });
-        return;
-      }
-      res.json(dbCommentData);
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json(err);
-    });
-});
+// router.put('/:id', withAuth, (req, res) => {
+//   Comment.update(
+//     {
+//       comment_text: req.body.comment_text,
+//     },
+//     {
+//       where: {
+//         id: req.params.id,
+//       },
+//     }
+//   )
+//     .then((dbCommentData) => {
+//       if (!dbCommentData) {
+//         res.status(404).json({ message: 'No comment found with this id' });
+//         return;
+//       }
+//       res.json(dbCommentData);
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//       res.status(500).json(err);
+//     });
+// });
+
+// router.delete('/:id', withAuth, (req, res) => {
+//   Comment.destroy({
+//     where: {
+//       id: req.params.id,
+//     },
+//   })
+//     .then((dbCommentData) => {
+//       if (!dbCommentData) {
+//         res.status(404).json({ message: 'No comment found with this id' });
+//         return;
+//       }
+//       res.json(dbCommentData);
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//       res.status(500).json(err);
+//     });
+// });
 module.exports = router;
 
 
