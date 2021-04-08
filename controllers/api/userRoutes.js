@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { User, Artwork } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-router.get('/artworks', withAuth, async (req, res) => {
+router.get('/my-artworks', withAuth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
@@ -14,14 +14,14 @@ router.get('/artworks', withAuth, async (req, res) => {
 
     res.render('artworks', {
       ...user,
-      loggedIn: true
+      loggedIn: req.session.loggedIn
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-router.get('/allartworks', withAuth, async (req, res) => {
+router.get('/all-artworks', withAuth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID
     const artworkData = await Artwork.findAll({
@@ -44,7 +44,7 @@ router.get('/allartworks', withAuth, async (req, res) => {
       loggedIn: req.session.loggedIn,
       first_name: req.session.first_name,
       last_name: req.session.last_name,
-      
+
     });
   } catch (err) {
     res.status(500).json(err);

@@ -63,13 +63,31 @@
             <div class="col-lg-6">
 
             </div>
+
+
+            <div class="col-lg-6 mb-3">
+                {{!-- {{typeof msg != 'undefined' ? msg: ''}} --}}
+                {{#if msg}}
+                <label>{{msg}}</label>
+                {{else}}
+                <label class="form-label" for="customFile">Upload the file</label>
+                {{/if}}
+                <input type="hidden" id="user_id" value="75" />
+                <input name="myArtwork" type="file" class="form-control" id="uploadFile" />
+            </div>
+            <div class="col-lg-6">
+
+            </div>
+
+
+
             <div class="col-md-4 mb-3">
                 <button type="submit" id="submit_artwork" class="w-100 btn btn-color">Submit
                     Artwork</button>
             </div>
             <div class="col-md-2">
                 <a href="/">
-                    <span class="w-100 btn btn-danger">Go, back</span>
+                    <span class="w-100 btn btn-danger">Cancel</span>
                 </a>
             </div>
 
@@ -109,5 +127,6 @@
         </div>
     </form>
 </div>
+
 
 <script src="../../eventListeners.js"></script>
