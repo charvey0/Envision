@@ -181,7 +181,9 @@ router.get('/profile-img', async (req, res) => {
       res.render('profile-picture', {
         profile_picture: userDB.profile_picture,
         loggedIn: req.session.loggedIn,
-        user_id: userDB.id
+        user_id: userDB.id,
+        first_name: req.session.first_name,
+        last_name: req.session.last_name
       });
     } catch (err) {
       console.log(err);
