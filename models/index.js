@@ -22,26 +22,25 @@ User.belongsTo(Role, {
 
 Role.hasMany(User, {
   foreignKey: 'role_id',
+  onDelete: 'CASCADE',
 });
 
 Comment.belongsTo(Artwork, {
   foreignKey: 'artwork_id',
-  onDelete: "cascade"
 })
 
 Artwork.hasMany(Comment, {
-  foreignKey: 'user_id',
-  onDelete: "cascade"
+  foreignKey: 'artwork_id',
+  onDelete: 'CASCADE',
 })
 
 Comment.belongsTo(User, {
   foreignKey: 'user_id',
-  onDelete: "cascade"
 })
 
 User.hasMany(Comment, {
   foreignKey: 'user_id',
-  onDelete: "cascade"
+  onDelete: 'CASCADE',
 })
 
 
