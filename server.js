@@ -103,3 +103,4 @@ sequelize.sync({ force: false }).then(() => {
 // DB_USER = root
 // SESSION_SECRET = super_secret_session
 
+// "start": "node seeds/index.js && node server.js",
