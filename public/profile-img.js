@@ -4,7 +4,8 @@ async function changePicture(event) {
     event.preventDefault();
     console.log("started");
     // if (event.target.hasAttribute('data-id')) {
-    const user_id = event.target.getAttribute('data-id');
+    console.log(event.target);
+    const user_id = +event.target.getAttribute('data-id');
     console.log(user_id);
     const formData = new FormData();
     formData.append('file', document.querySelector('#uploadImg').files[0]);
@@ -25,6 +26,7 @@ async function changePicture(event) {
         document.location.replace('/api/users/profile-img');
         // succesSubmited()
     } else {
+        console.log(response.statusText)
         alert(response.statusText);
 
     }
