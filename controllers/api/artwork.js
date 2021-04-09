@@ -51,7 +51,8 @@ router.get('/:id', async (req, res) => {
       loggedIn: req.session.loggedIn,
       first_name: req.session.first_name,
       last_name: req.session.last_name,
-      session_profile_picture: req.session.profile_picture
+      session_profile_picture: req.session.profile_picture,
+      user_id: req.session.user_id
     });
     console.log(comments);
     console.log(art);

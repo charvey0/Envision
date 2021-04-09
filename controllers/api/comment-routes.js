@@ -10,7 +10,10 @@ router.get('/:id', withAuth, async (req, res) => {
       return;
     }
     const artwork = artworkData.get({ plain: true });
-    res.render('comment-add', { artwork: artwork });
+    res.render('comment-add', {
+      artwork: artwork,
+      user_id: req.session.user_id
+    });
   } catch (err) {
     res.status(500).json(err);
   };

@@ -3,10 +3,12 @@ const { User, Artwork, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
+  // console.log(req.session);
   res.render('homepage', {
     loggedIn: req.session.loggedIn,
     first_name: req.session.first_name,
     last_name: req.session.last_name,
+    user_id: req.session.user_id
   });
 });
 
@@ -45,8 +47,8 @@ router.get('/login', (req, res) => {
 router.get('/signup', (req, res) => {
   res.render('signup', {
     loginOrSignupPage: true,
-    
-   });
+
+  });
 });
 
 module.exports = router;
