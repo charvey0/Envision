@@ -16,6 +16,7 @@ router.get('/', (req, res) => {
         loggedIn: req.session.loggedIn,
         first_name: req.session.first_name,
         last_name: req.session.last_name,
+        user_id: req.session.user_id
     })
 })
 
@@ -28,7 +29,7 @@ router.post('/submit', withAuth, async (req, res) => {
     await cloudinary.uploader.upload(filePath, async (err, result) => {
         if (err) {
             res.status(500).json(err)
-            res.render('posArtwork', {
+            res.render('postArtwork', {
                 msg: err
             })
         } else {

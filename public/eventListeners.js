@@ -51,13 +51,9 @@ async function addArtwork(event) {
 }
 
 
-
-
 document
     .querySelector("#add-artwork")
     .addEventListener("submit", addArtwork);
-
-
 
 
 

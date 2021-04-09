@@ -2,6 +2,15 @@ const router = require('express').Router();
 const { User, Artwork } = require('../../models');
 const withAuth = require('../../utils/auth');
 
+var cloudinary = require('cloudinary').v2;
+
+cloudinary.config({
+  cloud_name: 'dz52vqg3p',
+  api_key: '412443397181723',
+  api_secret: 'q-mf7e4S7u-oJqmK9BeXOqne7oU',
+})
+
+
 router.get('/my-artworks', withAuth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID
@@ -14,7 +23,8 @@ router.get('/my-artworks', withAuth, async (req, res) => {
 
     res.render('artworks', {
       ...user,
-      loggedIn: req.session.loggedIn
+      loggedIn: req.session.loggedIn,
+      user_id: req.session.user_id
     });
   } catch (err) {
     res.status(500).json(err);
@@ -44,6 +54,7 @@ router.get('/all-artworks', withAuth, async (req, res) => {
       loggedIn: req.session.loggedIn,
       first_name: req.session.first_name,
       last_name: req.session.last_name,
+      user_id: req.session.user_id
 
     });
   } catch (err) {
@@ -68,7 +79,8 @@ router.get('/artworks/:id', async (req, res) => {
       ...artwork,
       loggedIn: req.session.loggedIn,
       first_name: req.session.first_name,
-      last_name: req.session.last_name
+      last_name: req.session.last_name,
+      user_id: req.session.user_id
     });
   } catch (err) {
     console.log(err);
@@ -85,6 +97,7 @@ router.post('/sign-up', async (req, res) => {
       first_name: req.body.firstName,
       last_name: req.body.lastName,
       role_id: +req.body.role,
+      profile_picture: "https://workhound.com/wp-content/uploads/2017/05/placeholder-profile-pic.png"
     });
     // console.log(newUser);
     req.session.save(() => {
@@ -131,6 +144,7 @@ router.post('/login', async (req, res) => {
       req.session.first_name = userDB.first_name;
       req.session.last_name = userDB.last_name;
       req.session.role_id = userDB.role_id;
+      req.session.profile_picture = userDB.profile_picture;
 
       // console.log('userDB', userDB);
       res.status(200).json({ user: userDB.dataValues, message: 'You are now logged in!' });
@@ -153,14 +167,82 @@ router.post('/logout', (req, res) => {
   }
 });
 
+
+router.get('/profile-img', (req, res) => {
+  console.log(req.params.id);
+  if (req.session.loggedIn) {
+    res.status(200);
+    console.log('profile picture page');
+    console.log(req.session);
+  }
+  res.render('profile-picture', {
+    profile_picture: req.session.profile_picture,
+    loggedIn: req.session.loggedIn,
+    user_id: req.session.user_id
+  });
+});
+
+router.put('/profile-img-upload/:id', withAuth, async (req, res) => {
+  // console.log(req.files.path);
+  const filePath = req.body.file.path;
+  console.log(filePath);
+  // console.log(req.files);
+  var fileNewUrl;
+  await cloudinary.uploader.upload(filePath, async (err, result) => {
+    if (err) {
+      res.status(500).json(err)
+      res.render('profile-picture', {
+        msg: err
+      })
+    } else {
+      console.log(result);
+
+    }
+    if (!result.url) {
+      fileNewUrl = 'https://workhound.com/wp-content/uploads/2017/05/placeholder-profile-pic.png'
+    } else {
+      fileNewUrl = result.url;
+    }
+
+    try {
+
+      const userForImg = await User.Update(req.params.id,
+        {
+          profile_picture: fileNewUrl,
+        }, {
+        where: {
+          id: req.params.id
+        }
+      });
+
+
+      console.log(userForImg);
+      res.status(200).json(userForImg);
+      res.render('profile-picture', {
+
+      })
+    } catch (err) {
+      console.log(err);
+
+      res.status(500).json(err)
+    }
+  })
+
+
+
+})
+
 //Profile route
 router.get('/profile', (req, res) => {
   if (req.session.loggedIn) {
     res.status(200);
     console.log('signed into profile!');
   }
-  res.render('profilepage');
+  res.render('profilepage', {
+    user_id: req.session.user_id
+  });
 });
+
 //Post, Comment
 // router.get('/', (req, res) => {
 //   User.findAll({
