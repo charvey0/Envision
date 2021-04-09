@@ -178,7 +178,8 @@ router.get('/profile-img', (req, res) => {
   res.render('profile-picture', {
     profile_picture: req.session.profile_picture,
     loggedIn: req.session.loggedIn,
-    user_id: req.session.user_id
+    user_id: req.session.user_id,
+    profile_picture: req.session.profile_picture
   });
 });
 
@@ -206,11 +207,12 @@ router.put('/profile-img-upload/:id', withAuth, async (req, res) => {
     console.log("the imported id: ", req.params.id);
     try {
 
-      const userForImg = await User.update(req.params.id, {
+      const userForImg = await User.update({ profile_picture: fileNewUrl }, {
+
         where: {
           id: req.params.id,
         },
-        profile_picture: fileNewUrl,
+
 
       })
 
@@ -219,10 +221,13 @@ router.put('/profile-img-upload/:id', withAuth, async (req, res) => {
       console.log("the url changed", fileNewUrl);
       console.log("result", userForImg);
       // res.status(200).json(userForImg);
-      // res.render('profile-picture', {
-      //   user_id: req.session.user_id,
-      //   profile_picture: 
-      // })
+      res.render('profile-picture',
+        {
+          user_id: req.session.user_id,
+          profile_picture: fileNewUrl
+        })
+
+
     } catch (err) {
       console.log("we got an err", err);
 
