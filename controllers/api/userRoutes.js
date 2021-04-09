@@ -220,7 +220,7 @@ router.put('/profile-img-upload/:id', withAuth, async (req, res) => {
     } else {
       fileNewUrl = result.url;
     }
-    console.log("the imported id: ", req.params.id);
+
     try {
 
       const userForImg = await User.update({ profile_picture: fileNewUrl },
@@ -256,7 +256,7 @@ router.put('/profile-img-upload/:id', withAuth, async (req, res) => {
       // console.log("pr pic rendered: ", profile_picture);
       console.log("from upload function: ", fileNewUrl);
     } catch (err) {
-      console.log("we got an err", err);
+      console.log(err);
 
       res.status(500).json(err)
     }
