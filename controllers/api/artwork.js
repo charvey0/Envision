@@ -80,7 +80,7 @@ router.post('/post/comment/:id', async (req, res) => {
     // const redir = '/api/artwork/' + comment.artwork_id;
     console.log(comment);
 
-    // res.status(200).redirect(redir);
+    res.status(200).json(comment);
   } catch (err) {
     console.log(err);
     res.status(400).json(err);
