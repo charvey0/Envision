@@ -168,18 +168,37 @@ router.post('/logout', (req, res) => {
 });
 
 
-router.get('/profile-img', (req, res) => {
-  console.log(req.params.id);
+router.get('/profile-img', async (req, res) => {
+  // console.log(req.params.id);
   if (req.session.loggedIn) {
-    res.status(200);
-    console.log('profile picture page');
-    console.log(req.session);
+    try {
+      const userDB = await User.findOne({
+        where: {
+          id: req.session.user_id,
+        },
+      })
+      console.log("180 DB received: ", userDB);
+      res.render('profile-picture', {
+        profile_picture: userDB.profile_picture,
+        loggedIn: req.session.loggedIn,
+        user_id: userDB.id,
+        first_name: req.session.first_name,
+        last_name: req.session.last_name
+      });
+    } catch (err) {
+      console.log(err);
+    }
   }
-  res.render('profile-picture', {
-    profile_picture: req.session.profile_picture,
-    loggedIn: req.session.loggedIn,
-    user_id: req.session.user_id
-  });
+  // if (req.session.loggedIn) {
+  //   res.status(200);
+  //   console.log('profile picture page');
+  //   console.log(req.session);
+  // }
+  // res.render('profile-picture', {
+  //   profile_picture: req.session.profile_picture,
+  //   loggedIn: req.session.loggedIn,
+  //   user_id: req.session.user_id
+  // });
 });
 
 router.put('/profile-img-upload/:id', withAuth, async (req, res) => {
@@ -206,21 +225,38 @@ router.put('/profile-img-upload/:id', withAuth, async (req, res) => {
 
     try {
 
-      const userForImg = await User.Update(req.params.id,
+      const userForImg = await User.update({ profile_picture: fileNewUrl },
         {
-          profile_picture: fileNewUrl,
-        }, {
-        where: {
-          id: req.params.id
-        }
-      });
+          where: {
+            id: req.params.id,
+          },
 
 
-      console.log(userForImg);
-      res.status(200).json(userForImg);
-      res.render('profile-picture', {
+        },
 
-      })
+      )
+
+      // const userForImgg = userForImg.get({ plain: true });
+      // req.session.save(() => {
+      //   // req.session.loggedIn = true;
+      //   // user_id = req.session.user_id
+      //   req.session.profile_picture = result.url;
+
+      //   // console.log('userDB', userDB);
+      //   // res.status(200).json({ user: userDB.dataValues, message: 'You are now logged in!' });
+
+      // });
+      // res.render('profile-picture', {
+      //   user_id: req.session.user_id,
+      //   profile_picture: fileNewUrl
+      // })
+      console.log("result", userForImg);
+
+      res.status(200).json(fileNewUrl);
+
+
+      // console.log("pr pic rendered: ", profile_picture);
+      console.log("from upload function: ", fileNewUrl);
     } catch (err) {
       console.log(err);
 
