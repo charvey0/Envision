@@ -19,7 +19,7 @@ const commentFormHandler = async (event) => {
 
   if (response.ok) {
     console.log('hey, look');
-    // document.location.replace(`/api/artwork/${artwork_id}`);
+    document.location.replace(`/api/artwork/${artwork_id}`);
   } else {
     console.log(response);
     alert('Failed to post a comment');
